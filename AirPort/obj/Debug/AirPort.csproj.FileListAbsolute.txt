@@ -1,0 +1,12 @@
+c:\users\julia\documents\visual studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.exe.config
+c:\users\julia\documents\visual studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.exe
+c:\users\julia\documents\visual studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.pdb
+c:\users\julia\documents\visual studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.csprojResolveAssemblyReference.cache
+c:\users\julia\documents\visual studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.exe
+c:\users\julia\documents\visual studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.pdb
+C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.exe.config
+C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.exe
+C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.pdb
+C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.exe
+C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.pdb
+C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.csprojResolveAssemblyReference.cache
