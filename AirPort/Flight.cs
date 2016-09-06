@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AirPort
 {
@@ -11,6 +12,7 @@ namespace AirPort
         public string Airline { get; set; }
         public char Terminal { get; set; }
         public Status FlightStatus { get; set; }
+        public List<Passenger> Passengers { get; set; }
 
         public override string ToString()
         {
