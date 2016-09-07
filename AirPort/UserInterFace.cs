@@ -8,7 +8,7 @@ namespace AirPort
 {
     class UserInterFace
     {
-        Flights _flights = new Flights();
+        Airport _airport = new Airport();
 
         public void AddNewFlight()
         {
@@ -20,7 +20,7 @@ namespace AirPort
             }
             Direction direction = (Direction)ConsoleHelper.ReadNumber(Console.ReadLine());
             Console.Write("Flight number: ");
-            string number = _flights.GetRandomString(6);
+            string number = _airport.GetRandomString(6);
             Console.WriteLine(number);
             Console.WriteLine("Enter Date and time in next format \"dd.mm.yyyy hh:mm:ss\"");
             Console.Write("Date and time: ");
@@ -48,14 +48,14 @@ namespace AirPort
                 Terminal = terminal,
                 FlightStatus = status
             };
-            _flights.Add(flight);
+            _airport.Add(flight);
         }
 
         public void DeleteFlight()
         {
             Console.WriteLine("Enter flight number to delete");
             string number = Console.ReadLine();
-            _flights.DeleteFlight(_flights.FindByNumber(number));
+            _airport.DeleteFlight(_airport.FindByNumber(number));
         }
         
         public void Search()
@@ -67,7 +67,7 @@ namespace AirPort
                 case 1:
                     Console.WriteLine("Enter number flight");
                     string number = Console.ReadLine().ToUpper();
-                    Flight flight = _flights.FindByNumber(number);
+                    Flight flight = _airport.FindByNumber(number);
                     if (flight == null)
                     {
                         Console.WriteLine($"Flight with {number} is not exist");
@@ -79,7 +79,7 @@ namespace AirPort
                 case 2:
                     Console.WriteLine("Enter city");
                     string city = Console.ReadLine();
-                    List<Flight> result = _flights.FindByCity(city);
+                    List<Flight> result = _airport.FindByCity(city);
                     if (result == null)
                     {
                         Console.WriteLine($"Flight with {city} is not exist");
@@ -90,7 +90,7 @@ namespace AirPort
                 case 3:
                     Console.WriteLine("Enter date and time");
                     DateTime dateTime = ConsoleHelper.ReadDate(Console.ReadLine());
-                    List<Flight> reslt = _flights.FindByTime(dateTime);
+                    List<Flight> reslt = _airport.FindByTime(dateTime);
                     if (reslt == null)
                     {
                         Console.WriteLine($"Flight with {dateTime} is not exist");
@@ -99,7 +99,7 @@ namespace AirPort
                     break;
                 default:
                     Console.WriteLine("Flight on nearest time");
-                    List<Flight> rslt = _flights.FindByNearestDateTime();
+                    List<Flight> rslt = _airport.FindByNearestDateTime();
                     if (rslt == null)
                     {
                         Console.WriteLine($"There are not flight on nearest time");
@@ -114,14 +114,14 @@ namespace AirPort
         public void PrintFlightDirection(Direction direction )
         {
             Console.WriteLine(string.Format("{0,10}|{1,8}|{2,20}|{3,15}|{4,35}|{5,8}|{6,10}", "Direction ", "Number", "Date Time", "City", "Airline", "Terminal", "Status"));
-            PrintFlights(_flights.GetFlightsDirection(direction));
+            PrintFlights(_airport.GetFlightsDirection(direction));
             Console.WriteLine();
         }
 
         public void PrintAllFlights()
         {
             Console.WriteLine(string.Format("{0,10}|{1,8}|{2,20}|{3,15}|{4,35}|{5,8}|{6,10}", "Direction ", "Number", "Date Time", "City", "Airline", "Terminal", "Status"));
-            PrintFlights(_flights.FlightsList);
+            PrintFlights(_airport.FlightsList);
             Console.WriteLine();
         }
         
@@ -137,7 +137,7 @@ namespace AirPort
         public void Edite()
         {
             Console.WriteLine("Enter flight number: ");
-            Flight flight = (Flight)_flights.FindByNumber(ConsoleHelper.ReadString(6, Console.ReadLine()));
+            Flight flight = (Flight)_airport.FindByNumber(ConsoleHelper.ReadString(6, Console.ReadLine()));
             Console.WriteLine("Enter new value for fields. If field should not be edited  value press enter");
             DateTime date = EditDateTime(flight.DateTime);
             string city = EditeFlightCity(flight.City);
@@ -154,7 +154,7 @@ namespace AirPort
                 Terminal = terminal,
                 FlightStatus = status
             };
-            _flights.Edite(newFlight);
+            _airport.Edite(newFlight);
 
         }
               

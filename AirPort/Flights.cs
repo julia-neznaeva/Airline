@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirPort
 {
-    class Flights
+    class Airport
     {
         const string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         static string[] cities = { "Kiev", "Kharkiv", "Dnipro", "Odesa", "Lviv", "Kryvyi Rih", "Mykolaiv", "Mariupol", "Vinnytsia", "Poltava", "Chernihiv" };
@@ -18,7 +18,7 @@ namespace AirPort
             get { return _flights; }
         }
 
-        public Flights()
+        public Airport()
         {
             for (int i = 0; i < 20; i++)
             {
