@@ -10,3 +10,6 @@ C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\obj\Debug\
 C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.exe
 C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\bin\Debug\AirPort.pdb
 C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\AirPort\obj\Debug\AirPort.csprojResolveAssemblyReference.cache
+C:\Users\Yuliya\Source\Repos\Airline\AirPort\bin\Debug\AirPort.exe.config
+C:\Users\Yuliya\Source\Repos\Airline\AirPort\obj\Debug\AirPort.exe
+C:\Users\Yuliya\Source\Repos\Airline\AirPort\obj\Debug\AirPort.pdb

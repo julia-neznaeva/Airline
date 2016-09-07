@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPassengerBuilder.cs" />
     <Compile Include="Sex.cs" />
     <Compile Include="Flights.cs" />
     <Compile Include="ConsoleHelper.cs" />

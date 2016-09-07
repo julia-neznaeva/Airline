@@ -18,5 +18,21 @@ namespace AirPort
         {
             return string.Format("{0,10}|{1,8}|{2,20}|{3,15}|{4,35}|{5,8}|{6,10}", Direction, FlightNumber, DateTime, City, Airline, Terminal, FlightStatus);
         }
+
+        public void DeletePassanger(Passenger passenger)
+        {
+            Passengers.Remove(passenger);
+        }
+
+        public void AddPassenger(Passenger passenger)
+        {
+            Passengers.Add(passenger);
+        }
+
+        public void EditPassanger(Passenger passenger)
+        {
+            Passengers.RemoveAll(x => x.Passport == passenger.Passport);
+            Passengers.Add(passenger);
+        }
     }
 }
