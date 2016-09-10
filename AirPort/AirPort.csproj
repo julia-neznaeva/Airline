@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flights\FlightInfoBuilder.cs" />
+    <Compile Include="Flights\FlightRandomBuilder.cs" />
     <Compile Include="IPassengerBuilder.cs" />
-    <Compile Include="Passengers\NameHelper.cs" />
-    <Compile Include="Sex.cs" />
-    <Compile Include="Flights.cs" />
+    <Compile Include="Passengers\PassengerConsoleBuilder.cs" />
+    <Compile Include="Passengers\PassengerInfoBuilder.cs" />
+    <Compile Include="Passengers\PassengerRandomBuilder.cs" />
+    <Compile Include="Passengers\Sex.cs" />
+    <Compile Include="Airpot.cs" />
     <Compile Include="ConsoleHelper.cs" />
     <Compile Include="Direction.cs" />
-    <Compile Include="Flight.cs" />
+    <Compile Include="Flights\Flight.cs" />
     <Compile Include="Passengers\Passenger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

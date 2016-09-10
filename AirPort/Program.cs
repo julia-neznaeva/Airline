@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirPort
+namespace Airport
 {
     class Program
     {
@@ -16,14 +16,15 @@ namespace AirPort
             Console.Title = "Airport";
 
             int a =0;
-            while (a < 6) {
+            while (a < 7) {
                 Console.WriteLine(@"Please,  type the number:
             1. View flights
             2. Search flights
             3. Add new flight
             4. Delete some flight
             5. Edit flight
-            6. Exit
+            6. Add Passenger
+            7. Exit
             ");
 
                 a = int.Parse(Console.ReadLine());
@@ -55,7 +56,10 @@ namespace AirPort
                         interFace.Edite();
                         Console.WriteLine("");
                         break;
-
+                    case 6:
+                        Console.WriteLine("Please Enter flight number");
+                        interFace.AddNewPassengerToFlight(Console.ReadLine());
+                        break;
                     default:
                         Console.WriteLine("Exit");
                         break;

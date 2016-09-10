@@ -6,7 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirPort
+namespace Airport
 {
     class ConsoleHelper
     {

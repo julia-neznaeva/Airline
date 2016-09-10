@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Airport.Passengers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirPort
+namespace Airport
 {
     class Airport
     {
@@ -12,7 +13,8 @@ namespace AirPort
         static string[] cities = { "Kiev", "Kharkiv", "Dnipro", "Odesa", "Lviv", "Kryvyi Rih", "Mykolaiv", "Mariupol", "Vinnytsia", "Poltava", "Chernihiv" };
         static string[] airlines = { "Ukraine International Airlines", "Air Urga", "AtlasGlobal UA", "Dniproavia", "Motor Sich Airlines", "Pegasus", "Dubai Fly", "Kharkiv Airlines" };
         List<Flight> _flights = new List<Flight>();
-        private Random rand = new Random(Environment.TickCount);
+        private PassengerInfoBuilder _passengerBuilder;
+        private Random _rand = new Random(Environment.TickCount);
         public List<Flight> FlightsList
         {
             get { return _flights; }
@@ -20,10 +22,12 @@ namespace AirPort
 
         public Airport()
         {
+            _passengerBuilder = new PassengerRandomBuilder(_rand);
             for (int i = 0; i < 20; i++)
             {
                 _flights.Add(CreateNewFlight());
             }
+          
         }
 
         public void DeleteFlight(Flight flight)
@@ -109,13 +113,14 @@ namespace AirPort
         public Flight CreateNewFlight()
         {
 
-            Direction direction = (Direction)rand.Next(0, 2);
+            Direction direction = (Direction)_rand.Next(0, 2);
             string flightNumber = GetRandomString(6);
             DateTime dateTime = GetRandomTime();
             string city = GetRandomCity();
             string airline = GetRandomAirline();
             char terminal = GetRandomTerminal();
-            Status flightStatus = (Status)rand.Next(0, 9);
+            Status flightStatus = (Status)_rand.Next(0, 9);
+            List<Passenger> passengers = GetPassengers(); 
 
             return new Flight()
             {
@@ -125,33 +130,51 @@ namespace AirPort
                 Airline = airline,
                 Terminal = terminal,
                 FlightStatus = flightStatus,
-                DateTime = dateTime
+                DateTime = dateTime,
+                Passengers = passengers,
 
             };
+        }
+
+        private List<Passenger> GetPassengers()
+        {
+            List<Passenger> passengers = new List<Passenger>();
+            int count = _rand.Next(0, 21);
+            for (int i = 0; i < count; i++)
+            {
+                _passengerBuilder.InitializeSex();
+                _passengerBuilder.InitializeFirstName();
+                _passengerBuilder.InitializeLastName();
+                _passengerBuilder.InitializeBirthday();
+                _passengerBuilder.InitializePassword();
+                _passengerBuilder.InitializeTicket();
+                passengers.Add(_passengerBuilder.CreatePassenger());
+            }
+            return passengers;
         }
 
         private DateTime GetRandomTime()
         {
             DateTime date = DateTime.Today;
-            date = date.AddDays(rand.Next(0, 32));
-            date = date.AddMinutes(rand.Next(0, 1441));
+            date = date.AddDays(_rand.Next(0, 32));
+            date = date.AddMinutes(_rand.Next(0, 1441));
             return date;
         }
 
         private char GetRandomTerminal()
         {
-            char result = _forRandString[rand.Next(0, _forRandString.Length - 9)];
+            char result = _forRandString[_rand.Next(0, _forRandString.Length - 9)];
             return result;
         }
 
         private string GetRandomAirline()
         {
-            return airlines[rand.Next(0, airlines.Length)];
+            return airlines[_rand.Next(0, airlines.Length)];
         }
 
         private string GetRandomCity()
         {
-            return cities[rand.Next(0, cities.Length)];
+            return cities[_rand.Next(0, cities.Length)];
         }
 
         public string GetRandomString(int length)
@@ -159,7 +182,7 @@ namespace AirPort
             char[] str = new char[length];
             for (int i = 0; i < length; i++)
             {
-                str[i] = _forRandString[rand.Next(0, _forRandString.Length)];
+                str[i] = _forRandString[_rand.Next(0, _forRandString.Length)];
             }
             return new string(str);
 

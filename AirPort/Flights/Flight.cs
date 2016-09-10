@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AirPort
+namespace Airport
 {
     internal class Flight
     {

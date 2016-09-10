@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Airport.Passengers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirPort
+namespace Airport
 {
     class UserInterFace
     {
         Airport _airport = new Airport();
+        PassengerInfoBuilder _passengerBuilder = new PassengerConsoleBuilder();
 
         public void AddNewFlight()
         {
@@ -49,6 +51,43 @@ namespace AirPort
                 FlightStatus = status
             };
             _airport.Add(flight);
+        }
+
+        public void AddNewPassengerToFlight(string flightNumber)
+        { 
+            PrintFlights(_airport.FlightsList.Where(x=>x.FlightNumber==flightNumber).ToList());
+            Flight flight = _airport.FindByNumber(flightNumber);
+            
+            if (_airport.FlightsList.Any(x => x.FlightNumber == flightNumber))
+            {
+                Console.WriteLine("Please fill out the form.");
+                Console.Write("First name: ");
+                _passengerBuilder.InitializeFirstName();
+                Console.Write("Last name: ");
+                _passengerBuilder.InitializeLastName();
+                Console.Write("Sex. Select 0 if female select 1 if male: ");
+                _passengerBuilder.InitializePassword();
+                Console.WriteLine();
+                Console.Write("Passport in next format SS NNNNNN:");
+                _passengerBuilder.InitializePassword();
+                Console.Write("Birthdate dd.mm.yyyy: ");
+                _passengerBuilder.InitializeBirthday();
+                Console.Write("Enter Ticket: ");
+                flight.Passengers.Add(_passengerBuilder.CreatePassenger());
+
+                Console.WriteLine(flight);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("The flight doesn't exsist");
+                Console.ReadLine();
+            }
+
+        }
+
+        public void DeletePassenger(Passenger passenger)
+        {
         }
 
         public void DeleteFlight()
@@ -131,6 +170,8 @@ namespace AirPort
             foreach (Flight flight in flights)
             {
                 Console.WriteLine(flight);
+                flight.Passengers.ForEach((x) => Console.WriteLine(x));
+
             }
         }
 
@@ -238,6 +279,13 @@ namespace AirPort
             Console.Write(" New value: ");
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        private static void AddNewPassenger()
+        {
+
+        }
+
+
 
         
     }

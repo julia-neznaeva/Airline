@@ -1,4 +1,4 @@
-﻿namespace AirPort
+﻿namespace Airport
 {
     public class Ticket
     {
