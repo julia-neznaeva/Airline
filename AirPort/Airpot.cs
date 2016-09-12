@@ -1,4 +1,5 @@
 ﻿using Airport.Passengers;
+using AirPort.Flights;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,10 @@ namespace Airport
 {
     class Airport
     {
-        const string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        static string[] cities = { "Kiev", "Kharkiv", "Dnipro", "Odesa", "Lviv", "Kryvyi Rih", "Mykolaiv", "Mariupol", "Vinnytsia", "Poltava", "Chernihiv" };
-        static string[] airlines = { "Ukraine International Airlines", "Air Urga", "AtlasGlobal UA", "Dniproavia", "Motor Sich Airlines", "Pegasus", "Dubai Fly", "Kharkiv Airlines" };
         List<Flight> _flights = new List<Flight>();
-        private PassengerInfoBuilder _passengerBuilder;
+        private FlightInfoBuilder _flightBuilder;
         private Random _rand = new Random(Environment.TickCount);
+
         public List<Flight> FlightsList
         {
             get { return _flights; }
@@ -22,10 +21,19 @@ namespace Airport
 
         public Airport()
         {
-            _passengerBuilder = new PassengerRandomBuilder(_rand);
+            _flightBuilder = new FlightRandomBuilder();
             for (int i = 0; i < 20; i++)
             {
-                _flights.Add(CreateNewFlight());
+                _flightBuilder.InitializeDirection();
+                _flightBuilder.InitializeFlightNumber();
+                _flightBuilder.InitializeDateTime();
+                _flightBuilder.InitializeCity();
+                _flightBuilder.InitializeAirline();
+                _flightBuilder.InitializeTerminal();
+                _flightBuilder.InitializeFlightStatus();
+                _flightBuilder.InitializePassengers();
+                
+                _flights.Add(_flightBuilder.CreateFlight());
             }
           
         }
@@ -107,87 +115,31 @@ namespace Airport
             return result;
         }
 
-
-        #region helper methods for random creation flights
-
-        public Flight CreateNewFlight()
-        {
-
-            Direction direction = (Direction)_rand.Next(0, 2);
-            string flightNumber = GetRandomString(6);
-            DateTime dateTime = GetRandomTime();
-            string city = GetRandomCity();
-            string airline = GetRandomAirline();
-            char terminal = GetRandomTerminal();
-            Status flightStatus = (Status)_rand.Next(0, 9);
-            List<Passenger> passengers = GetPassengers(); 
-
-            return new Flight()
-            {
-                Direction = direction,
-                FlightNumber = flightNumber,
-                City = city,
-                Airline = airline,
-                Terminal = terminal,
-                FlightStatus = flightStatus,
-                DateTime = dateTime,
-                Passengers = passengers,
-
-            };
-        }
-
-        private List<Passenger> GetPassengers()
+        public List<Passenger> FindPassengerByName(string value)
         {
             List<Passenger> passengers = new List<Passenger>();
-            int count = _rand.Next(0, 21);
-            for (int i = 0; i < count; i++)
+            foreach (var flight in _flights)
             {
-                _passengerBuilder.InitializeSex();
-                _passengerBuilder.InitializeFirstName();
-                _passengerBuilder.InitializeLastName();
-                _passengerBuilder.InitializeBirthday();
-                _passengerBuilder.InitializePassword();
-                _passengerBuilder.InitializeTicket();
-                passengers.Add(_passengerBuilder.CreatePassenger());
+                passengers.AddRange(flight.Passengers.Where(x => x.Firstname.Contains(value)));
+                passengers.AddRange(flight.Passengers.Where(x => x.Lastname.Contains(value)));
             }
             return passengers;
         }
 
-        private DateTime GetRandomTime()
+        public List<Passenger> FindPassengerPassport(string value)
         {
-            DateTime date = DateTime.Today;
-            date = date.AddDays(_rand.Next(0, 32));
-            date = date.AddMinutes(_rand.Next(0, 1441));
-            return date;
-        }
-
-        private char GetRandomTerminal()
-        {
-            char result = _forRandString[_rand.Next(0, _forRandString.Length - 9)];
-            return result;
-        }
-
-        private string GetRandomAirline()
-        {
-            return airlines[_rand.Next(0, airlines.Length)];
-        }
-
-        private string GetRandomCity()
-        {
-            return cities[_rand.Next(0, cities.Length)];
-        }
-
-        public string GetRandomString(int length)
-        {
-            char[] str = new char[length];
-            for (int i = 0; i < length; i++)
+            List<Passenger> passengers = new List<Passenger>();
+            foreach (var flight in _flights)
             {
-                str[i] = _forRandString[_rand.Next(0, _forRandString.Length)];
+                passengers.AddRange(flight.Passengers.Where(x => x.Passport.Contains(value)));
             }
-            return new string(str);
-
+            return passengers;
         }
-        #endregion
+
+        public List<Passenger> FindPassengerByFlightNumber(string flightNumber)
+        {
+            return FindByNumber(flightNumber).Passengers;
+        }
 
 
     }

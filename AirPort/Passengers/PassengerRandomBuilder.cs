@@ -8,15 +8,10 @@ namespace Airport.Passengers
 {
     class PassengerRandomBuilder : PassengerInfoBuilder
     {
-        private static Random _random;
+        private static Random _random = new Random(Environment.TickCount);
         private static int _minAge = 12;
         private static int _maxAge = 90;
         const string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-        internal PassengerRandomBuilder(Random random)
-        {
-            _random = random;
-        }
 
         private static string[] _firstNames = { "Sophia", "Emma", "Olivia", "Ava", "Isabella", "Mia", "Zoe", "Lily", "Emily", "Madelyn", "Madison", "Chloe", "Charlotte", "Aubrey", "Avery", "Abigail", "Kaylee", "Layla", "Harper", "Ella", "Amelia", "Arianna", "Riley", "Aria", "Hailey", "Hannah", "Aaliyah", "Evelyn", "Addison", "Mackenzie", "Adalyn", "Ellie", "Brooklyn", "Nora", "Scarlett", "Grace", "Anna", "Isabelle", "Natalie", "Kaitlyn", "Lillian", "Sarah", "Audrey", "Elizabeth", "Leah", "Annabelle", "Kylie", "Mila", "Claire", "Victoria", "Maya", "Lila", "Elena", "Lucy", "Savannah", "Gabriella", "Callie", "Alaina", "Sophie", "Makayla", "Kennedy", "Sadie", "Skyler", "Allison", "Caroline", "Charlie", "Penelope", "Alyssa", "Peyton", "Samantha", "Liliana", "Bailey", "Maria", "Reagan", "Violet", "Eliana", "Adeline", "Eva", "Stella", "Keira", "Katherine", "Vivian", "Alice", "Alexandra", "Camilla", "Kayla", "Alexis", "Sydney", "Kaelyn", "Jasmine", "Julia", "Cora", "Lauren", "Piper", "Gianna", "Paisley", "Bella", "London", "Clara", "Cadence", "Jackson", "Aiden", "Liam", "Lucas", "Noah", "Mason", "Ethan", "Caden", "Jacob", "Logan", "Jayden", "Elijah", "Jack", "Luke", "Michael", "Benjamin", "Alexander", "James", "Jayce", "Caleb", "Connor", "William", "Carter", "Ryan", "Oliver", "Matthew", "Daniel", "Gabriel", "Henry", "Owen", "Grayson", "Dylan", "Landon", "Isaac", "Nicholas", "Wyatt", "Nathan", "Andrew", "Cameron", "Dominic", "Joshua", "Eli", "Sebastian", "Hunter", "Brayden", "David", "Samuel", "Evan", "Gavin", "Christian", "Max", "Anthony", "Joseph", "Julian", "John", "Colton", "Levi", "Muhammad", "Isaiah", "Aaron", "Tyler", "Charlie", "Adam", "Parker", "Austin", "Thomas", "Zachary", "Nolan", "Alex", "Ian", "Jonathan", "Christopher", "Cooper", "Hudson", "Miles", "Adrian", "Leo", "Blake", "Lincoln", "Jordan", "Tristan", "Jason", "Josiah", "Xavier", "Camden", "Chase", "Declan", "Carson", "Colin", "Brody", "Asher", "Jeremiah", "Micah", "Easton", "Xander", "Ryder", "Nathaniel", "Elliot", "Sean", "Cole" };
         
@@ -32,8 +27,8 @@ namespace Airport.Passengers
         {
             int minYear = DateTime.Today.Year - _maxAge;
             int maxYear = DateTime.Today.Year - _minAge;
-            DateTime minDate = new DateTime().AddDays(minYear);
-            DateTime maxDate = new DateTime().AddDays(maxYear);
+            DateTime minDate = new DateTime().AddYears(minYear);
+            DateTime maxDate = new DateTime().AddYears(maxYear);
             int countPossibleDays = (maxDate.Date - minDate).Days;
             _passenger.Birthday= minDate.AddDays(_random.Next(0, countPossibleDays));
         }
@@ -72,7 +67,8 @@ namespace Airport.Passengers
         
         public override void InitializeTicket()
         {
-            _passenger.Ticket = null;
+             _passenger.Ticket = (TicketType)_random.Next(0,2);
+
         }
     }
 }

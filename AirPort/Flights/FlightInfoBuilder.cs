@@ -9,7 +9,12 @@ namespace AirPort.Flights
 {
     abstract class FlightInfoBuilder
     {
-        protected Flight _flight = new Flight();
+        protected Flight _flight;
+
+        public FlightInfoBuilder()
+        {
+            _flight = new Flight();
+        }
 
         public abstract void InitializeDirection();
         public abstract void InitializeFlightNumber();

@@ -11,6 +11,7 @@ namespace Airport
     {
         Airport _airport = new Airport();
         PassengerInfoBuilder _passengerBuilder = new PassengerConsoleBuilder();
+        Random _rand = new Random(Environment.TickCount);
 
         public void AddNewFlight()
         {
@@ -22,7 +23,7 @@ namespace Airport
             }
             Direction direction = (Direction)ConsoleHelper.ReadNumber(Console.ReadLine());
             Console.Write("Flight number: ");
-            string number = _airport.GetRandomString(6);
+            string number = GetRandomString(6);
             Console.WriteLine(number);
             Console.WriteLine("Enter Date and time in next format \"dd.mm.yyyy hh:mm:ss\"");
             Console.Write("Date and time: ");
@@ -53,6 +54,17 @@ namespace Airport
             _airport.Add(flight);
         }
 
+        private string GetRandomString(int v)
+        {
+            string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            char[] str = new char[6];
+            for (int i = 0; i < str.Count(); i++)
+            {
+                str[i] = _forRandString[_rand.Next(0, _forRandString.Length)];
+            }
+            return new string(str);
+        }
+
         public void AddNewPassengerToFlight(string flightNumber)
         { 
             PrintFlights(_airport.FlightsList.Where(x=>x.FlightNumber==flightNumber).ToList());
@@ -67,8 +79,7 @@ namespace Airport
                 _passengerBuilder.InitializeLastName();
                 Console.Write("Sex. Select 0 if female select 1 if male: ");
                 _passengerBuilder.InitializePassword();
-                Console.WriteLine();
-                Console.Write("Passport in next format SS NNNNNN:");
+                Console.Write("Passport in next format SS NNNNNN: ");
                 _passengerBuilder.InitializePassword();
                 Console.Write("Birthdate dd.mm.yyyy: ");
                 _passengerBuilder.InitializeBirthday();
@@ -86,8 +97,15 @@ namespace Airport
 
         }
 
-        public void DeletePassenger(Passenger passenger)
+        public void DeletePassenger(string passportNumber)
         {
+            Passenger passenger = new Passenger();
+            foreach (var flight in _airport.FlightsList)
+            {
+                passenger = flight.Passengers.Where(x => x.Passport == passportNumber).FirstOrDefault();
+                flight.DeletePassanger(passenger);
+                break;
+            }
         }
 
         public void DeleteFlight()
@@ -279,14 +297,6 @@ namespace Airport
             Console.Write(" New value: ");
             Console.ForegroundColor = ConsoleColor.White;
         }
-
-        private static void AddNewPassenger()
-        {
-
-        }
-
-
-
         
     }
 }

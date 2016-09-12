@@ -32,7 +32,7 @@ namespace Airport
         
         public override void InitializeTicket()
         {
-           _passenger.Ticket = null;
+           _passenger.Ticket = (TicketType)ConsoleHelper.ReadNumber(Console.ReadLine());
         }
     }
 }

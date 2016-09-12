@@ -16,7 +16,7 @@ namespace Airport
             Console.Title = "Airport";
 
             int a =0;
-            while (a < 7) {
+            while (a < 9) {
                 Console.WriteLine(@"Please,  type the number:
             1. View flights
             2. Search flights
@@ -60,6 +60,11 @@ namespace Airport
                         Console.WriteLine("Please Enter flight number");
                         interFace.AddNewPassengerToFlight(Console.ReadLine());
                         break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+
                     default:
                         Console.WriteLine("Exit");
                         break;
