@@ -5,11 +5,11 @@ using Airport.Passengers;
 
 namespace AirPort.Flights
 {
-	public class FlightConsoleBuilder : FlightInfoBuilder
+	public class ConsoleFlightInfoBuilder : FlightInfoBuilder
 	{
 		private static Random _rand = new Random(Environment.TickCount);
 		private PassengerInfoBuilder _pbuilder;
-		public FlightConsoleBuilder(PassengerInfoBuilder pbuilder)
+		public ConsoleFlightInfoBuilder(PassengerInfoBuilder pbuilder)
 		{
 			_pbuilder = pbuilder;
 		}

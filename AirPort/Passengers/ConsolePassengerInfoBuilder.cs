@@ -3,7 +3,7 @@ using Airport.Passengers;
 
 namespace Airport
 {
-    internal class PassengerConsoleBuilder : PassengerInfoBuilder
+    internal class ConsolePassengerInfoBuilder : PassengerInfoBuilder
     {
 
         protected override void InitializeFirstName()
