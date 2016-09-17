@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace Airport.Passengers
 {
-    abstract class PassengerInfoBuilder
+    public abstract class PassengerInfoBuilder
     {
         protected Passenger _passenger = new Passenger();
 
-        public abstract void InitializeFirstName();
-        public abstract void InitializeLastName();
-        public abstract void InitializePassword();
-        public abstract void InitializeSex();
-        public abstract void InitializeBirthday();
-        public abstract void InitializeTicket();
+        protected abstract void InitializeFirstName();
+        protected abstract void InitializeLastName();
+        protected abstract void InitializePassword();
+        protected abstract void InitializeSex();
+        protected abstract void InitializeBirthday();
+        protected abstract void InitializeTicket();
 
         public Passenger CreatePassenger()
         {
+			InitializeFirstName();
+			InitializeLastName();
+			InitializePassword();
+			InitializeSex();
+			InitializeBirthday();
+			InitializeTicket();
             return _passenger;
         }
 

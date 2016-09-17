@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirPort.Flights;
 
 namespace Airport
 {
@@ -11,92 +12,14 @@ namespace Airport
     {
         Airport _airport = new Airport();
         PassengerInfoBuilder _passengerBuilder = new PassengerConsoleBuilder();
-        Random _rand = new Random(Environment.TickCount);
-
         public void AddNewFlight()
         {
             Console.WriteLine("Please fill out the form");
-            Console.Write("Select direction: ");
-            for (int i = 0; i <= (int)Direction.Departure; i++)
-            {
-                Console.Write($"{(Direction)i} - {i} ");
-            }
-            Direction direction = (Direction)ConsoleHelper.ReadNumber(Console.ReadLine());
-            Console.Write("Flight number: ");
-            string number = GetRandomString(6);
-            Console.WriteLine(number);
-            Console.WriteLine("Enter Date and time in next format \"dd.mm.yyyy hh:mm:ss\"");
-            Console.Write("Date and time: ");
-            DateTime dateTime = ConsoleHelper.ReadDate(Console.ReadLine());
-            Console.WriteLine("Enter city, max value of city name should be 15 symbols");
-            Console.Write("City: ");
-            string city = ConsoleHelper.ReadString(15, Console.ReadLine());
-            Console.WriteLine("Enter airline, max value of airline name should be 40 symbols");
-            Console.Write("Airline: ");
-            string airline = ConsoleHelper.ReadString(40, Console.ReadLine());
-            Console.WriteLine("Enter Terminal. Terminal name should be 1 symbols");
-            Console.Write("Terminal: ");
-            char terminal = ConsoleHelper.ReadString(1, Console.ReadLine()).ToCharArray().First();
-            Console.WriteLine("Select status:");
-            for (int i = 0; i <= (int)Status.InFlight; i++)
-                Console.Write($"{(Status)i} - {i} ");
-            Status status = (Status)ConsoleHelper.ReadNumber(Console.ReadLine());
-            Flight flight = new Flight()
-            {
-                Direction = direction,
-                FlightNumber = number,
-                DateTime = dateTime,
-                City = city,
-                Airline = airline,
-                Terminal = terminal,
-                FlightStatus = status
-            };
-            _airport.Add(flight);
-        }
-
-        private string GetRandomString(int v)
-        {
-            string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            char[] str = new char[6];
-            for (int i = 0; i < str.Count(); i++)
-            {
-                str[i] = _forRandString[_rand.Next(0, _forRandString.Length)];
-            }
-            return new string(str);
-        }
-
-        public void AddNewPassengerToFlight(string flightNumber)
-        { 
-            PrintFlights(_airport.FlightsList.Where(x=>x.FlightNumber==flightNumber).ToList());
-            Flight flight = _airport.FindByNumber(flightNumber);
+			FlightInfoBuilder builder = new FlightConsoleBuilder(_passengerBuilder);
             
-            if (_airport.FlightsList.Any(x => x.FlightNumber == flightNumber))
-            {
-                Console.WriteLine("Please fill out the form.");
-                Console.Write("First name: ");
-                _passengerBuilder.InitializeFirstName();
-                Console.Write("Last name: ");
-                _passengerBuilder.InitializeLastName();
-                Console.Write("Sex. Select 0 if female select 1 if male: ");
-                _passengerBuilder.InitializePassword();
-                Console.Write("Passport in next format SS NNNNNN: ");
-                _passengerBuilder.InitializePassword();
-                Console.Write("Birthdate dd.mm.yyyy: ");
-                _passengerBuilder.InitializeBirthday();
-                Console.Write("Enter Ticket: ");
-                flight.Passengers.Add(_passengerBuilder.CreatePassenger());
-
-                Console.WriteLine(flight);
-                Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine("The flight doesn't exsist");
-                Console.ReadLine();
-            }
-
+			_airport.Add(builder.CreateFlight());
         }
-
+        
         public void DeletePassenger(string passportNumber)
         {
             Passenger passenger = new Passenger();
@@ -107,14 +30,77 @@ namespace Airport
                 break;
             }
         }
-
+        
         public void DeleteFlight()
         {
             Console.WriteLine("Enter flight number to delete");
             string number = Console.ReadLine();
             _airport.DeleteFlight(_airport.FindByNumber(number));
         }
-        
+
+        public void EditPassenger()
+        {
+            Console.WriteLine("Please enter passenger passport number:");
+            string number = ConsoleHelper.ReadString(9, Console.ReadLine());
+            Passenger passenger = _airport.FindPassengerPassport(number).FirstOrDefault();
+            Console.WriteLine("Enter new value for fields. If field should not be edited  value press enter");
+            passenger.Firstname = EditFirstName(passenger.Firstname);
+            passenger.Lastname = EditLastName(passenger.Lastname);
+            passenger.Sex = EditSex(passenger.Sex);
+            passenger.Birthday = EditBirthday(passenger.Birthday);
+            passenger.Ticket = EditeTiket(passenger.Ticket);
+
+        }
+
+        private TicketType EditeTiket(TicketType ticket)
+        {
+            Console.WriteLine();
+            return ticket;
+        }
+
+        private DateTime EditBirthday(DateTime birthday)
+        {
+            Console.WriteLine("Enter birthday");
+            string date = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(date))
+            {
+                return birthday;
+            }
+            return ConsoleHelper.ReadDate(date);
+        }
+
+        private Sex EditSex(Sex sex)
+        {
+            Console.WriteLine("Enter 0 if female, 1 if male");
+            OutputOldValue(sex);
+            int sexValue;
+            if( int.TryParse(Console.ReadLine(), out sexValue))
+            {
+                return (Sex)sexValue;
+            }
+            return sex;
+
+        }
+
+        private string EditLastName(string lastname)
+        {
+            Console.WriteLine("Enter last name");
+            OutputOldValue(lastname);
+            string name = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(name)) { return lastname; }
+            return name;
+        }
+
+        private string EditFirstName(string firstname)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Enter first name");
+            OutputOldValue(firstname);
+            string name = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(name)) { return firstname; }
+            return name;
+        }
+
         public void Search()
         {
             int a = ConsoleHelper.ReadNumber(Console.ReadLine());
@@ -170,14 +156,13 @@ namespace Airport
 
         public void PrintFlightDirection(Direction direction )
         {
-            Console.WriteLine(string.Format("{0,10}|{1,8}|{2,20}|{3,15}|{4,35}|{5,8}|{6,10}", "Direction ", "Number", "Date Time", "City", "Airline", "Terminal", "Status"));
+            
             PrintFlights(_airport.GetFlightsDirection(direction));
             Console.WriteLine();
         }
 
         public void PrintAllFlights()
         {
-            Console.WriteLine(string.Format("{0,10}|{1,8}|{2,20}|{3,15}|{4,35}|{5,8}|{6,10}", "Direction ", "Number", "Date Time", "City", "Airline", "Terminal", "Status"));
             PrintFlights(_airport.FlightsList);
             Console.WriteLine();
         }
@@ -275,7 +260,7 @@ namespace Airport
 
         private DateTime EditDateTime(DateTime dateTime)
         {
-
+             
             Console.WriteLine();
             Console.WriteLine("Enter Date and time in next format \"dd.mm.yyyy hh:mm:ss\"");
             OutputOldValue(dateTime);

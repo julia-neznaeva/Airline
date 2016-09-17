@@ -6,32 +6,38 @@ namespace Airport
     internal class PassengerConsoleBuilder : PassengerInfoBuilder
     {
 
-        public override void InitializeFirstName()
+        protected override void InitializeFirstName()
         {
+			Console.Write("First name: ");
             _passenger.Firstname = ConsoleHelper.ReadString(15, Console.ReadLine());
         }
 
-        public override void InitializeLastName()
+        protected override void InitializeLastName()
         {
+			Console.Write("Last name: ");
             _passenger.Lastname = ConsoleHelper.ReadString(25, Console.ReadLine());
         }
-        public override void InitializeSex()
+        protected override void InitializeSex()
         {
+			Console.Write("Sex. Select 0 if female select 1 if male: ");
             _passenger.Sex = (Sex)ConsoleHelper.ReadNumber(Console.ReadLine()) ;
         }
 
-        public override void InitializePassword()
+        protected override void InitializePassword()
         {
+			Console.Write("Passport in next format SS NNNNNN: ");
             _passenger.Passport = ConsoleHelper.ReadString(9, Console.ReadLine());
         }
 
-        public override void InitializeBirthday()
+        protected override void InitializeBirthday()
         {
+			Console.Write("Birthdate dd.mm.yyyy: ");
             _passenger.Birthday = ConsoleHelper.ReadDate(Console.ReadLine());
         }
         
-        public override void InitializeTicket()
+        protected override void InitializeTicket()
         {
+			Console.Write("Enter Ticket: ");
            _passenger.Ticket = (TicketType)ConsoleHelper.ReadNumber(Console.ReadLine());
         }
     }

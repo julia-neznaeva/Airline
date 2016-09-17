@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Airport
 {
-    internal class Flight
+    public class Flight
     {
         public Direction Direction { get; set; }
         public string FlightNumber { get; set; }

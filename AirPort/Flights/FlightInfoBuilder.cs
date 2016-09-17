@@ -4,29 +4,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Airport.Passengers;
 
 namespace AirPort.Flights
 {
-    abstract class FlightInfoBuilder
+    public abstract class FlightInfoBuilder
     {
-        protected Flight _flight;
+        protected Flight _flight = new Flight();
 
-        public FlightInfoBuilder()
+
+		protected virtual void InitializeDirection()
+		{ 
+		}
+		protected virtual void InitializeFlightNumber()
+		{ 
+		}
+		protected virtual void InitializeDateTime()
+		{ 
+		}
+		protected virtual void InitializeCity()
+		{ 
+		}
+		protected virtual void InitializeAirline()
+		{ 
+		}
+		protected virtual void InitializeTerminal()
+		{ 
+		}
+		protected virtual void InitializeFlightStatus()
+		{ 
+		}
+		protected virtual void InitializePassengers()
+		{ 
+		}
+
+        public virtual Flight CreateFlight()
         {
-            _flight = new Flight();
-        }
+			InitializeDirection();
+			InitializeDateTime();
+			InitializeCity();
+			InitializeAirline();
+			InitializeTerminal();
+			InitializeFlightStatus();
+			InitializePassengers();
 
-        public abstract void InitializeDirection();
-        public abstract void InitializeFlightNumber();
-        public abstract void InitializeDateTime();
-        public abstract void InitializeCity();
-        public abstract void InitializeAirline();
-        public abstract void InitializeTerminal();
-        public abstract void InitializeFlightStatus();
-        public abstract void InitializePassengers();
-
-        public Flight CreateFlight()
-        {
+			InitializeFlightNumber();
             return _flight;
         }
     }

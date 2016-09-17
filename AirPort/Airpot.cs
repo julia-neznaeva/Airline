@@ -24,15 +24,6 @@ namespace Airport
             _flightBuilder = new FlightRandomBuilder();
             for (int i = 0; i < 20; i++)
             {
-                _flightBuilder.InitializeDirection();
-                _flightBuilder.InitializeFlightNumber();
-                _flightBuilder.InitializeDateTime();
-                _flightBuilder.InitializeCity();
-                _flightBuilder.InitializeAirline();
-                _flightBuilder.InitializeTerminal();
-                _flightBuilder.InitializeFlightStatus();
-                _flightBuilder.InitializePassengers();
-                
                 _flights.Add(_flightBuilder.CreateFlight());
             }
           
@@ -140,8 +131,6 @@ namespace Airport
         {
             return FindByNumber(flightNumber).Passengers;
         }
-
-
-    }
+     }
 
 }

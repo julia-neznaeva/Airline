@@ -18,12 +18,12 @@ namespace Airport.Passengers
         private static string[] _lastName = { "Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "Hernandez", "King", "Wright", "Lopez", "Hill", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nelson", "Carter", "Mitchell", "Perez", "Roberts", "Turner", "Phillips", "Campbell", "Parker", "Evans", "Edwards", "Collins", "Stewart", "Sanchez", "Morris", "Rogers", "Reed", "Cook", "Morgan", "Bell", "Murphy", "Bailey", "Rivera", "Cooper", "Richardson", "Cox", "Howard", "Ward", "Torres", "Peterson", "Gray", "Ramirez", "James", "Watson", "Brooks", "Kelly", "Sanders", "Price", "Bennett", "Wood", "Barnes", "Ross", "Henderson", "Coleman", "Jenkins", "Perry", "Powell", "Long", "Patterson", "Hughes", "Flores", "Washington", "Butler", "Simmons", "Foster", "Gonzales", "Bryant", "Alexander", "Russell", "Griffin", "Diaz", "Hayes" };
         
        
-        public override void InitializeSex()
+        protected override void InitializeSex()
         {
             _passenger.Sex = (Sex)_random.Next(0,2);
         }
 
-        public override void InitializeBirthday()
+        protected override void InitializeBirthday()
         {
             int minYear = DateTime.Today.Year - _maxAge;
             int maxYear = DateTime.Today.Year - _minAge;
@@ -33,7 +33,7 @@ namespace Airport.Passengers
             _passenger.Birthday= minDate.AddDays(_random.Next(0, countPossibleDays));
         }
 
-        public override void InitializeFirstName()
+        protected override void InitializeFirstName()
         {
             if (_passenger.Sex == Sex.Female)
             {
@@ -46,12 +46,12 @@ namespace Airport.Passengers
 
         }
 
-        public override void InitializeLastName()
+        protected override void InitializeLastName()
         {
             _passenger.Lastname = _lastName[_random.Next(0, _lastName.Length)];
         }
 
-        public override void InitializePassword()
+        protected override void InitializePassword()
         {
             string seria = _forRandString[_random.Next(0, _forRandString.Length - 10)] + _forRandString[_random.Next(0, _forRandString.Length - 10)].ToString();
             StringBuilder number = new StringBuilder();
@@ -65,7 +65,7 @@ namespace Airport.Passengers
             _passenger.Passport= $"{seria} {number}";
         }
         
-        public override void InitializeTicket()
+        protected override void InitializeTicket()
         {
              _passenger.Ticket = (TicketType)_random.Next(0,2);
 

@@ -59,6 +59,7 @@
     <Compile Include="Tickets\Ticket.cs" />
     <Compile Include="Tickets\TicketClass.cs" />
     <Compile Include="UserInterFace.cs" />
+    <Compile Include="Flights\FlightConsoleBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

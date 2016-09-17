@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Airport
 {
-    enum Direction
+    public enum Direction
     {
         Arrival,
         Departure
     }
 
-    enum Status
+    public enum Status
     {
         CheckIn,
         GateClosed,
