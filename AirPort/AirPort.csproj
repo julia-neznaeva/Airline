@@ -44,10 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Flights\FlightInfoBuilder.cs" />
-    <Compile Include="Flights\FlightRandomBuilder.cs" />
-    <Compile Include="Passengers\PassengerConsoleBuilder.cs" />
+    <Compile Include="Flights\RandomFlightInfoBuilder.cs" />
+    <Compile Include="Passengers\ConsolePassengerInfoBuilder.cs" />
     <Compile Include="Passengers\PassengerInfoBuilder.cs" />
-    <Compile Include="Passengers\PassengerRandomBuilder.cs" />
+    <Compile Include="Passengers\RandomPassengerInfoBuilder.cs" />
     <Compile Include="Passengers\Sex.cs" />
     <Compile Include="Airpot.cs" />
     <Compile Include="ConsoleHelper.cs" />
@@ -59,7 +59,7 @@
     <Compile Include="Tickets\Ticket.cs" />
     <Compile Include="Tickets\TicketClass.cs" />
     <Compile Include="UserInterFace.cs" />
-    <Compile Include="Flights\FlightConsoleBuilder.cs" />
+    <Compile Include="Flights\ConsoleFlightInfoBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

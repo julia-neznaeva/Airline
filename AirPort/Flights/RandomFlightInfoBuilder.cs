@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace AirPort.Flights
 {
-    class FlightRandomBuilder : FlightInfoBuilder
+    class RandomFlightInfoBuilder : FlightInfoBuilder
     {
         const string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private static string[] _cities = { "Kiev", "Kharkiv", "Dnipro", "Odesa", "Lviv", "Kryvyi Rih", "Mykolaiv", "Mariupol", "Vinnytsia", "Poltava", "Chernihiv" };
         private static string[] _airlines = { "Ukraine International Airlines", "Air Urga", "AtlasGlobal UA", "Dniproavia", "Motor Sich Airlines", "Pegasus", "Dubai Fly", "Kharkiv Airlines" };
         private static Random _rand = new Random(Environment.TickCount);
-        private PassengerInfoBuilder _passengerBuilder = new PassengerRandomBuilder();
+        private PassengerInfoBuilder _passengerBuilder = new RandomPassengerInfoBuilder();
 
         protected override void InitializeAirline()
         {

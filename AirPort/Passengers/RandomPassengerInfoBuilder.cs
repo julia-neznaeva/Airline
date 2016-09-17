@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Passengers
 {
-    class PassengerRandomBuilder : PassengerInfoBuilder
+    class RandomPassengerInfoBuilder : PassengerInfoBuilder
     {
         private static Random _random = new Random(Environment.TickCount);
         private static int _minAge = 12;

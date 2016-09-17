@@ -21,7 +21,7 @@ namespace Airport
 
         public Airport()
         {
-            _flightBuilder = new FlightRandomBuilder();
+            _flightBuilder = new RandomFlightInfoBuilder();
             for (int i = 0; i < 20; i++)
             {
                 _flights.Add(_flightBuilder.CreateFlight());

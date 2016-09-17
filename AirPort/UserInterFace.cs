@@ -11,11 +11,11 @@ namespace Airport
     class UserInterFace
     {
         Airport _airport = new Airport();
-        PassengerInfoBuilder _passengerBuilder = new PassengerConsoleBuilder();
+        PassengerInfoBuilder _passengerBuilder = new ConsolePassengerInfoBuilder();
         public void AddNewFlight()
         {
             Console.WriteLine("Please fill out the form");
-			FlightInfoBuilder builder = new FlightConsoleBuilder(_passengerBuilder);
+			FlightInfoBuilder builder = new ConsoleFlightInfoBuilder(_passengerBuilder);
             
 			_airport.Add(builder.CreateFlight());
         }
