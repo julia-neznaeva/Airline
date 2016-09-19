@@ -57,8 +57,8 @@ namespace Airport
                         Console.WriteLine("");
                         break;
                     case 6:
-                        Console.WriteLine("Please Enter flight number");
-                        //interFace.AddNewPassengerToFlight(Console.ReadLine());
+                        interFace.AddNewPassenger();
+                        Console.WriteLine("");
                         break;
                     case 7:
                         break;

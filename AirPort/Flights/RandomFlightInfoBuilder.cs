@@ -16,45 +16,45 @@ namespace AirPort.Flights
         private static Random _rand = new Random(Environment.TickCount);
         private PassengerInfoBuilder _passengerBuilder = new RandomPassengerInfoBuilder();
 
-        protected override void InitializeAirline()
+        protected override void InitializeAirline(Flight flight)
         {
-            _flight.Airline= _airlines[_rand.Next(0, _airlines.Length)];
+            flight.Airline= _airlines[_rand.Next(0, _airlines.Length)];
         }
 
-        protected override void InitializeCity()
+        protected override void InitializeCity(Flight flight)
         {
-            _flight.City = _cities[_rand.Next(0, _cities.Length)];
+            flight.City = _cities[_rand.Next(0, _cities.Length)];
         }
 
-        protected override void InitializeDateTime()
+        protected override void InitializeDateTime(Flight flight)
         {
             DateTime date = DateTime.Today;
             date = date.AddDays(_rand.Next(0, 32));
             date = date.AddMinutes(_rand.Next(0, 1441));
-            _flight.DateTime= date;
+            flight.DateTime= date;
         }
 
-        protected override void InitializeDirection()
+        protected override void InitializeDirection(Flight flight)
         {
-           _flight.Direction = (Direction)_rand.Next(0, 2);
+           flight.Direction = (Direction)_rand.Next(0, 2);
         }
 
-        protected override void InitializeFlightNumber()
+        protected override void InitializeFlightNumber(Flight flight)
         {
             char[] str = new char[6];
             for (int i = 0; i < str.Count(); i++)
             {
                 str[i] = _forRandString[_rand.Next(0, _forRandString.Length)];
             }
-            _flight.FlightNumber= new string(str);
+            flight.FlightNumber= new string(str);
         }
 
-        protected override void InitializeFlightStatus()
+        protected override void InitializeFlightStatus(Flight flight)
         {
-            _flight.FlightStatus = (Status)_rand.Next(0, 9) ;
+            flight.FlightStatus = (Status)_rand.Next(0, 9) ;
         }
 
-        protected override void InitializePassengers()
+        protected override void InitializePassengers(Flight flight)
         {
             List<Passenger> passengers = new List<Passenger>();
             int count = _rand.Next(0, 21);
@@ -62,12 +62,12 @@ namespace AirPort.Flights
             {
                 passengers.Add(_passengerBuilder.CreatePassenger());
             }
-            _flight.Passengers = passengers;
+            flight.Passengers = passengers;
         }
 
-        protected override void InitializeTerminal()
+        protected override void InitializeTerminal(Flight flight)
         {
-            _flight.Terminal = _forRandString[_rand.Next(0, _forRandString.Length - 9)];
+            flight.Terminal = _forRandString[_rand.Next(0, _forRandString.Length - 9)];
             
         }
     }

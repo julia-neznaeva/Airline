@@ -8,24 +8,23 @@ namespace Airport.Passengers
 {
     public abstract class PassengerInfoBuilder
     {
-        protected Passenger _passenger = new Passenger();
-
-        protected abstract void InitializeFirstName();
-        protected abstract void InitializeLastName();
-        protected abstract void InitializePassword();
-        protected abstract void InitializeSex();
-        protected abstract void InitializeBirthday();
-        protected abstract void InitializeTicket();
+        protected abstract void InitializeFirstName(Passenger passenger);
+        protected abstract void InitializeLastName(Passenger passenger);
+        protected abstract void InitializePassword(Passenger passenger);
+        protected abstract void InitializeSex(Passenger passenger);
+        protected abstract void InitializeBirthday(Passenger passenger);
+        protected abstract void InitializeTicket(Passenger passenger);
 
         public Passenger CreatePassenger()
         {
-			InitializeFirstName();
-			InitializeLastName();
-			InitializePassword();
-			InitializeSex();
-			InitializeBirthday();
-			InitializeTicket();
-            return _passenger;
+            Passenger  passenger  = new Passenger();
+            InitializeFirstName(passenger);
+			InitializeLastName(passenger);
+			InitializePassword(passenger);
+			InitializeSex(passenger);
+			InitializeBirthday(passenger);
+			InitializeTicket(passenger);
+            return passenger;
         }
 
 

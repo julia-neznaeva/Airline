@@ -64,7 +64,7 @@ namespace Airport
         
         public Flight FindByNumber(string flightNumber)
         {
-            Flight result = new Flight();
+            Flight result = null;
             foreach (Flight flight in _flights)
             {
                 if (flight.FlightNumber == flightNumber)

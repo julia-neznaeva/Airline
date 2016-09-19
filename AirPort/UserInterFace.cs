@@ -19,7 +19,22 @@ namespace Airport
             
 			_airport.Add(builder.CreateFlight());
         }
-        
+
+        public void AddNewPassenger()
+        {
+            Console.WriteLine("Please enter Number of flight to add new passenger");
+            String flightNumber = Console.ReadLine();
+            Flight flight =_airport.FindByNumber(flightNumber);
+            if (flight == null)
+                Console.WriteLine($"The flight with the {flightNumber} flight number does not exsist");
+            else
+            {
+                flight.AddPassenger( _passengerBuilder.CreatePassenger());
+            }
+            
+
+        }
+               
         public void DeletePassenger(string passportNumber)
         {
             Passenger passenger = new Passenger();
