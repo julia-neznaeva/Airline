@@ -42,27 +42,31 @@ namespace Airport
             3. By Time
             4. Nearest flight (1 hour)");
                         interFace.Search();
-                        Console.WriteLine("");
+                        Console.WriteLine();
                         break;
                     case 3:
                         interFace.AddNewFlight();
-                        Console.WriteLine("");
+                        Console.WriteLine();
                         break;
                     case 4:
                         interFace.DeleteFlight();
-                        Console.WriteLine("");
+                        Console.WriteLine();
                         break;
                     case 5:
                         interFace.Edite();
-                        Console.WriteLine("");
+                        Console.WriteLine();
                         break;
                     case 6:
-                        Console.WriteLine("Please Enter flight number");
-                        //interFace.AddNewPassengerToFlight(Console.ReadLine());
+                        interFace.AddNewPassenger();
+                        Console.WriteLine();
                         break;
                     case 7:
+                        interFace.EditPassenger();
+                        Console.WriteLine();
                         break;
                     case 8:
+                        interFace.DeletePassenger();
+                        Console.WriteLine();
                         break;
 
                     default:

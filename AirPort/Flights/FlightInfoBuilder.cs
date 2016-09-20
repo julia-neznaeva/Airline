@@ -10,46 +10,44 @@ namespace AirPort.Flights
 {
     public abstract class FlightInfoBuilder
     {
-        protected Flight _flight = new Flight();
-
-
-		protected virtual void InitializeDirection()
+       
+		protected virtual void InitializeDirection(Flight flight)
 		{ 
 		}
-		protected virtual void InitializeFlightNumber()
+		protected virtual void InitializeFlightNumber(Flight flight)
 		{ 
 		}
-		protected virtual void InitializeDateTime()
+		protected virtual void InitializeDateTime(Flight flight)
 		{ 
 		}
-		protected virtual void InitializeCity()
+		protected virtual void InitializeCity(Flight flight)
 		{ 
 		}
-		protected virtual void InitializeAirline()
+		protected virtual void InitializeAirline(Flight flight)
 		{ 
 		}
-		protected virtual void InitializeTerminal()
+		protected virtual void InitializeTerminal(Flight flight)
 		{ 
 		}
-		protected virtual void InitializeFlightStatus()
+		protected virtual void InitializeFlightStatus(Flight flight)
 		{ 
 		}
-		protected virtual void InitializePassengers()
+		protected virtual void InitializePassengers(Flight flight)
 		{ 
 		}
 
         public virtual Flight CreateFlight()
         {
-			InitializeDirection();
-			InitializeDateTime();
-			InitializeCity();
-			InitializeAirline();
-			InitializeTerminal();
-			InitializeFlightStatus();
-			InitializePassengers();
-
-			InitializeFlightNumber();
-            return _flight;
+            Flight flight = new Flight();
+			InitializeDirection(flight);
+			InitializeDateTime(flight);
+			InitializeCity(flight);
+			InitializeAirline(flight);
+			InitializeTerminal(flight);
+			InitializeFlightStatus(flight);
+			InitializePassengers(flight);
+            InitializeFlightNumber(flight);
+            return flight;
         }
     }
 }

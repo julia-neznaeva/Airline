@@ -14,7 +14,7 @@ namespace AirPort.Flights
 			_pbuilder = pbuilder;
 		}
 
-		protected override void InitializeDirection()
+		protected override void InitializeDirection(Flight flight)
 		{
 			Console.Write("Select direction: ");
 			for (int i = 0; i <= (int)Direction.Departure; i++)
@@ -22,61 +22,61 @@ namespace AirPort.Flights
 				Console.Write($"{(Direction)i} - {i} ");
 			}
 			Direction direction = (Direction)ConsoleHelper.ReadNumber(Console.ReadLine());
-			_flight.Direction = direction;
+			flight.Direction = direction;
 		}
 
-		protected override void InitializeFlightNumber()
+		protected override void InitializeFlightNumber(Flight flight)
 		{
 			Console.Write("Flight number: ");
 			string number = GetRandomString(6);
 			Console.WriteLine(number);
-			_flight.FlightNumber = number;
+			flight.FlightNumber = number;
 		}
 
-		protected override void InitializeDateTime()
+		protected override void InitializeDateTime(Flight flight)
 		{
 			Console.WriteLine("Enter Date and time in next format \"dd.mm.yyyy hh:mm:ss\"");
 			Console.Write("Date and time: ");
 			DateTime dateTime = ConsoleHelper.ReadDate(Console.ReadLine());
-			_flight.DateTime = dateTime;
+			flight.DateTime = dateTime;
 		}
 
-		protected override void InitializeCity()
+		protected override void InitializeCity(Flight flight)
 		{
 			Console.WriteLine("Enter city, max value of city name should be 15 symbols");
 			Console.Write("City: ");
 			string city = ConsoleHelper.ReadString(15, Console.ReadLine());
-			_flight.City = city;
+			flight.City = city;
 		}
 
-		protected override void InitializeAirline()
+		protected override void InitializeAirline(Flight flight)
 		{
 			Console.WriteLine("Enter airline, max value of airline name should be 40 symbols");
 			Console.Write("Airline: ");
 			string airline = ConsoleHelper.ReadString(40, Console.ReadLine());
-			_flight.Airline = airline;
+			flight.Airline = airline;
 		}
 
-		protected override void InitializeTerminal()
+		protected override void InitializeTerminal(Flight flight)
 		{
 			Console.WriteLine("Enter Terminal. Terminal name should be 1 symbols");
 			Console.Write("Terminal: ");
 			char terminal = ConsoleHelper.ReadString(1, Console.ReadLine()).ToCharArray().First();
-			_flight.Terminal = terminal;
+			flight.Terminal = terminal;
 		}
 
-		protected override void InitializeFlightStatus()
+		protected override void InitializeFlightStatus(Flight flight)
 		{
 			Console.WriteLine("Select status:");
 			for (int i = 0; i <= (int)Status.InFlight; i++)
 				Console.Write($"{(Status)i} - {i} ");
 			Status status = (Status)ConsoleHelper.ReadNumber(Console.ReadLine());
-			_flight.FlightStatus = status;
+			flight.FlightStatus = status;
 		}
 
-		protected override void InitializePassengers()
+		protected override void InitializePassengers(Flight flight)
 		{
-			_flight.Passengers.Add(_pbuilder.CreatePassenger());
+			flight.Passengers.Add(_pbuilder.CreatePassenger());
 		}
 
 		private string GetRandomString(int v)
