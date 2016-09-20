@@ -35,8 +35,10 @@ namespace Airport
 
         }
                
-        public void DeletePassenger(string passportNumber)
+        public void DeletePassenger()
         {
+            Console.Write("Enter passport number: ");
+            String passportNumber = Console.ReadLine();
             Passenger passenger = new Passenger();
             foreach (var flight in _airport.FlightsList)
             {

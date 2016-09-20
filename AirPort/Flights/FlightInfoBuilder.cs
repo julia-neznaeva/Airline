@@ -10,9 +10,7 @@ namespace AirPort.Flights
 {
     public abstract class FlightInfoBuilder
     {
-       // protected Flight _flight = new Flight();
-
-
+       
 		protected virtual void InitializeDirection(Flight flight)
 		{ 
 		}
