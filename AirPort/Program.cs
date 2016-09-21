@@ -23,7 +23,9 @@ namespace Airport
             3. Add new flight
             4. Delete some flight
             5. Edit flight
-            6. Add Passenger
+            6. Add p assenger
+            7. Edit passenger
+            8.
             7. Exit
             ");
 
