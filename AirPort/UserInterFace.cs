@@ -43,8 +43,12 @@ namespace Airport
             foreach (var flight in _airport.FlightsList)
             {
                 passenger = flight.Passengers.Where(x => x.Passport == passportNumber).FirstOrDefault();
-                flight.DeletePassanger(passenger);
-                break;
+                if (passenger != null)
+                {
+                    flight.DeletePassanger(passenger);
+                    break;
+                }
+               
             }
         }
         

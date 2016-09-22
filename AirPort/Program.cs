@@ -20,13 +20,14 @@ namespace Airport
                 Console.WriteLine(@"Please,  type the number:
             1. View flights
             2. Search flights
-            3. Add new flight
-            4. Delete some flight
+            3. Add flight
+            4. Delete flight
             5. Edit flight
-            6. Add p assenger
+            6. Add passenger
             7. Edit passenger
-            8.
-            7. Exit
+            8. Delete passenger
+            9. Search passenger
+            10. Exit
             ");
 
                 a = int.Parse(Console.ReadLine());
@@ -70,7 +71,8 @@ namespace Airport
                         interFace.DeletePassenger();
                         Console.WriteLine();
                         break;
-
+                    case 9:
+                        break;
                     default:
                         Console.WriteLine("Exit");
                         break;
