@@ -5,13 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirPort.Flights;
+using Airport;
+using PresenterLevel;
 
 namespace Airport
 {
-    class UserInterFace
+    class UserInterFace : IView
     {
         Airport _airport = new Airport();
+
         PassengerInfoBuilder _passengerBuilder = new ConsolePassengerInfoBuilder();
+
+        public event EventHandler<EventArgs> DisplayFlightEventRaise;
 
         public void Menu()
         {
@@ -371,6 +376,15 @@ namespace Airport
             Console.Write(" New value: ");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        
+
+        public void Print(Flight flight)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Print(List<Flight> flights)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

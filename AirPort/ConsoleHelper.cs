@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Airport
 {
-    class ConsoleHelper
+    public class ConsoleHelper
     {
         public static string ReadString(int length, string str)
         {

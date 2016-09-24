@@ -17,9 +17,9 @@ namespace Airport
         public DateTime Birthday { get; set; }
         public TicketType Ticket { get; set; }
 
-        internal Passenger() : base() { }
+        public Passenger() : base() { }
 
-        internal Passenger(string firtstName, string lastName, string passport, DateTime birthday, Sex sex, TicketType ticket)
+        public Passenger(string firtstName, string lastName, string passport, DateTime birthday, Sex sex, TicketType ticket)
         {
             Firstname = firtstName;
             Lastname = lastName;

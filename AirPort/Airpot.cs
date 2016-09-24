@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Airport
 {
-    class Airport
+    public class Airport
     {
         List<Flight> _flights = new List<Flight>();
         private FlightInfoBuilder _flightBuilder;
@@ -37,7 +37,7 @@ namespace Airport
         public void Add(Flight flight)
         {
             _flights.Add(flight);
-        }
+        } 
 
         public void Edite(Flight flight)
         {
