@@ -1,5 +1,5 @@
-﻿using Airport;
-using Airport.Passengers;
+﻿using AirportProgram;
+using AirportProgram.Passengers;
 using AirportLibrary.Passengers;
 using System;
 using System.Collections.Generic;

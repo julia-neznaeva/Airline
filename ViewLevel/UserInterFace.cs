@@ -1,14 +1,15 @@
-﻿using Airport.Passengers;
+﻿using AirportProgram.Passengers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AirPort.Flights;
-using Airport;
 using PresenterLevel;
+using AirportLibrary;
+using AirportLibrary.Passengers;
+using AirportLibrary.Flights;
 
-namespace Airport
+namespace ViewLevel
 {
     class UserInterFace : IView
     {
@@ -89,25 +90,25 @@ namespace Airport
         public void AddNewFlight()
         {
             Console.WriteLine("Please fill out the form");
-			FlightInfoBuilder builder = new ConsoleFlightInfoBuilder(_passengerBuilder);
-            
-			_airport.Add(builder.CreateFlight());
+            FlightInfoBuilder builder = new ConsoleFlightInfoBuilder(_passengerBuilder);
+
+            _airport.Add(builder.CreateFlight());
         }
 
         public void AddNewPassenger()
         {
             Console.WriteLine("Please enter Number of flight to add new passenger");
             String flightNumber = Console.ReadLine();
-            Flight flight =_airport.FindByNumber(flightNumber);
+            Flight flight = _airport.FindByNumber(flightNumber);
             if (flight == null)
                 Console.WriteLine($"The flight with the {flightNumber} flight number does not exsist");
             else
             {
-                flight.AddPassenger( _passengerBuilder.CreatePassenger());
+                flight.AddPassenger(_passengerBuilder.CreatePassenger());
             }
-  
+
         }
-               
+
         public void DeletePassenger()
         {
             Console.Write("Enter passport number: ");
@@ -121,10 +122,10 @@ namespace Airport
                     flight.DeletePassanger(passenger);
                     break;
                 }
-               
+
             }
         }
-        
+
         public void DeleteFlight()
         {
             Console.WriteLine("Enter flight number to delete");
@@ -168,7 +169,7 @@ namespace Airport
             Console.WriteLine("Enter 0 if female, 1 if male");
             OutputOldValue(sex);
             int sexValue;
-            if( int.TryParse(Console.ReadLine(), out sexValue))
+            if (int.TryParse(Console.ReadLine(), out sexValue))
             {
                 return (Sex)sexValue;
             }
@@ -222,7 +223,7 @@ namespace Airport
                         Console.WriteLine($"Flight with {city} is not exist");
                     }
                     else
-                    PrintFlights(result);
+                        PrintFlights(result);
                     break;
                 case 3:
                     Console.WriteLine("Enter date and time");
@@ -248,9 +249,9 @@ namespace Airport
             }
         }
 
-        public void PrintFlightDirection(Direction direction )
+        public void PrintFlightDirection(Direction direction)
         {
-            
+
             PrintFlights(_airport.GetFlightsDirection(direction));
             Console.WriteLine();
         }
@@ -260,7 +261,7 @@ namespace Airport
             PrintFlights(_airport.FlightsList);
             Console.WriteLine();
         }
-        
+
         private void PrintFlights(List<Flight> flights)
         {
             Console.WriteLine();
@@ -295,7 +296,7 @@ namespace Airport
             _airport.Edite(newFlight);
 
         }
-              
+
         private string EditAirline(string airline)
         {
             Console.WriteLine();
@@ -354,7 +355,7 @@ namespace Airport
 
         private DateTime EditDateTime(DateTime dateTime)
         {
-             
+
             Console.WriteLine();
             Console.WriteLine("Enter Date and time in next format \"dd.mm.yyyy hh:mm:ss\"");
             OutputOldValue(dateTime);

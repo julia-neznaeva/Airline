@@ -4,8 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8BEAC5C0-40AD-45F6-BD72-1740DBF582A2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{07CD5890-8CF5-4A59-A1A0-B807CA93E796}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ViewLevel</RootNamespace>
     <AssemblyName>ViewLevel</AssemblyName>
@@ -13,7 +13,6 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,12 +43,12 @@
     <Compile Include="UserInterFace.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AirPort\AirPort.csproj">
-      <Project>{111ebf32-5049-432f-b04c-6e8a1e1932ad}</Project>
-      <Name>AirPort</Name>
+    <ProjectReference Include="..\AirportLibrary\AirportLibrary.csproj">
+      <Project>{4344e238-3e59-42ee-a9b3-42e07c9a0130}</Project>
+      <Name>AirportLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\PresenterLevel\PresenterLevel.csproj">
-      <Project>{96b4afee-215b-45c5-bc9c-b27d4bcb1390}</Project>
+      <Project>{13bbb3e2-85db-4b0f-ba3f-e8449aea64ff}</Project>
       <Name>PresenterLevel</Name>
     </ProjectReference>
   </ItemGroup>

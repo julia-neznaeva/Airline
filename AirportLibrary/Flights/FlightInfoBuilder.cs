@@ -1,10 +1,10 @@
-﻿using Airport;
+﻿using AirportProgram;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Airport.Passengers;
+using AirportProgram.Passengers;
 
 namespace AirportLibrary.Flights
 {

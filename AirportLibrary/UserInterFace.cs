@@ -1,4 +1,4 @@
-﻿using Airport.Passengers;
+﻿using AirportProgram.Passengers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

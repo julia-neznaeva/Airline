@@ -1,1 +1,7 @@
-C:\Users\Juliia\Documents\Visual Studio 2015\Projects\AirPort\PresenterLevel\obj\Debug\PresenterLevel.csprojResolveAssemblyReference.cache
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\PresenterLevel.dll
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\PresenterLevel.pdb
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\obj\Debug\PresenterLevel.dll
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\obj\Debug\PresenterLevel.pdb
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\AirportLibrary.dll
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\AirportLibrary.pdb
+C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\obj\Debug\PresenterLevel.csprojResolveAssemblyReference.cache
