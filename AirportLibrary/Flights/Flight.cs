@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Airport
+namespace AirportLibrary
 {
     public class Flight
     {

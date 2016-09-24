@@ -43,28 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Flights\FlightInfoBuilder.cs" />
-    <Compile Include="Flights\RandomFlightInfoBuilder.cs" />
-    <Compile Include="Passengers\ConsolePassengerInfoBuilder.cs" />
-    <Compile Include="Passengers\PassengerInfoBuilder.cs" />
-    <Compile Include="Passengers\RandomPassengerInfoBuilder.cs" />
-    <Compile Include="Passengers\Sex.cs" />
-    <Compile Include="Airpot.cs" />
-    <Compile Include="ConsoleHelper.cs" />
-    <Compile Include="Flights\Direction.cs" />
-    <Compile Include="Flights\Flight.cs" />
-    <Compile Include="Passengers\Passenger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tickets\Ticket.cs" />
-    <Compile Include="Tickets\TicketClass.cs" />
-    <Compile Include="UserInterFace.cs" />
-    <Compile Include="Flights\ConsoleFlightInfoBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AirportLibrary\AirportLibrary.csproj">
+      <Project>{4344e238-3e59-42ee-a9b3-42e07c9a0130}</Project>
+      <Name>AirportLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

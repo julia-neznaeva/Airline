@@ -1,12 +1,13 @@
 ﻿using Airport;
 using Airport.Passengers;
+using AirportLibrary.Passengers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirPort.Flights
+namespace AirportLibrary.Flights
 {
     class RandomFlightInfoBuilder : FlightInfoBuilder
     {

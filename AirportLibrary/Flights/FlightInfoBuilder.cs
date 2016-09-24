@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Airport.Passengers;
 
-namespace AirPort.Flights
+namespace AirportLibrary.Flights
 {
     public abstract class FlightInfoBuilder
     {

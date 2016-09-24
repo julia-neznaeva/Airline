@@ -1,7 +1,8 @@
 ﻿using System;
 using Airport.Passengers;
+using AirportLibrary.Passengers;
 
-namespace Airport
+namespace AirportLibrary
 {
     public class ConsolePassengerInfoBuilder : PassengerInfoBuilder
     {

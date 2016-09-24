@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Airport;
-using Airport.Passengers;
+using AirportLibrary.Passengers;
 
-namespace AirPort.Flights
+namespace AirportLibrary.Flights
 {
 	public class ConsoleFlightInfoBuilder : FlightInfoBuilder
 	{

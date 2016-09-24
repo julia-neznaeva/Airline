@@ -1,12 +1,11 @@
-﻿using Airport.Passengers;
-using AirPort.Flights;
+﻿using AirportLibrary.Flights;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Airport
+namespace AirportLibrary
 {
     public class Airport
     {

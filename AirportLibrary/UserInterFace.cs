@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AirPort.Flights;
+using AirportLibrary.Flights;
+using AirportLibrary.Passengers;
 
-namespace Airport
+namespace AirportLibrary
+
 {
-    class UserInterFace
+    public class UserInterFace
     {
         Airport _airport = new Airport();
         PassengerInfoBuilder _passengerBuilder = new ConsolePassengerInfoBuilder();
