@@ -49,7 +49,7 @@ namespace Airport
                         Console.WriteLine();
                         break;
                     case 3:
-                        AddNewFlight();
+                        AddFlight();
                         Console.WriteLine();
                         break;
                     case 4:
@@ -61,7 +61,7 @@ namespace Airport
                         Console.WriteLine();
                         break;
                     case 6:
-                        AddNewPassenger();
+                        AddPassenger();
                         Console.WriteLine();
                         break;
                     case 7:
@@ -81,7 +81,7 @@ namespace Airport
             }
         }
 
-        public void AddNewFlight()
+        public void AddFlight()
         {
             Console.WriteLine("Please fill out the form");
 			FlightInfoBuilder builder = new ConsoleFlightInfoBuilder(_passengerBuilder);
@@ -89,7 +89,7 @@ namespace Airport
 			_airport.Add(builder.CreateFlight());
         }
 
-        public void AddNewPassenger()
+        public void AddPassenger()
         {
             Console.WriteLine("Please enter Number of flight to add new passenger");
             String flightNumber = Console.ReadLine();
