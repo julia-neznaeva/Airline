@@ -1,5 +1,4 @@
 ﻿using System;
-using Airport.Passengers;
 using AirportLibrary.Passengers;
 
 namespace AirportLibrary

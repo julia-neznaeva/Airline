@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{96B4AFEE-215B-45C5-BC9C-B27D4BCB1390}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PresenterLevel</RootNamespace>
     <AssemblyName>PresenterLevel</AssemblyName>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,9 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AirPort\AirPort.csproj">
-      <Project>{111ebf32-5049-432f-b04c-6e8a1e1932ad}</Project>
-      <Name>AirPort</Name>
+    <ProjectReference Include="..\AirportLibrary\AirportLibrary.csproj">
+      <Project>{4344e238-3e59-42ee-a9b3-42e07c9a0130}</Project>
+      <Name>AirportLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

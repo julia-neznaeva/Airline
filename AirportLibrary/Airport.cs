@@ -1,4 +1,5 @@
 ﻿using AirportLibrary.Flights;
+using PresenterLevel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,22 @@ using System.Threading.Tasks;
 
 namespace AirportLibrary
 {
-    public class Airport
+    public class Airport : IAirport
     {
         List<Flight> _flights = new List<Flight>();
         private FlightInfoBuilder _flightBuilder;
-        private Random _rand = new Random(Environment.TickCount);
 
-        public List<Flight> FlightsList
+        public static Airport Create()
+        {
+           return new Airport();
+        }
+
+        public List<Flight> Flights
         {
             get { return _flights; }
         }
 
-        public Airport()
+        private Airport()
         {
             _flightBuilder = new RandomFlightInfoBuilder();
             for (int i = 0; i < 20; i++)
@@ -27,7 +32,6 @@ namespace AirportLibrary
             }
           
         }
-
         public void DeleteFlight(Flight flight)
         {
             _flights.Remove(flight);

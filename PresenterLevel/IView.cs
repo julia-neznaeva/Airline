@@ -1,4 +1,5 @@
-﻿using Airport;
+﻿using AirportLibrary;
+using AirportLibrary.Flights;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,19 @@ namespace PresenterLevel
     {
         event EventHandler<EventArgs> DisplayFlightEventRaise;
 
+        event EventHandler<PredicateFlightEventArgs> SearchFlightEventRaise;
+
+        event EventHandler<FlightNumberEventArgs> DeleteFlightEventRaise;
+
+        void PrintMenu();
+
         void Print(Flight flight);
 
         void Print(List<Flight> flights);
+
+
+
+
         
     }
 }

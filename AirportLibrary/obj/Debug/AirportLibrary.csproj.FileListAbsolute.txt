@@ -3,3 +3,8 @@ C:\Users\Juliia\Source\Repos\Airline\AirportLibrary\bin\Debug\AirportLibrary.dll
 C:\Users\Juliia\Source\Repos\Airline\AirportLibrary\bin\Debug\AirportLibrary.pdb
 C:\Users\Juliia\Source\Repos\Airline\AirportLibrary\obj\Debug\AirportLibrary.dll
 C:\Users\Juliia\Source\Repos\Airline\AirportLibrary\obj\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\bin\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\bin\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\obj\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\obj\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\obj\Debug\AirportLibrary.csprojResolveAssemblyReference.cache
