@@ -1,10 +1,8 @@
-﻿using AirportProgram;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AirportProgram.Passengers;
 
 namespace AirportLibrary.Flights
 {
@@ -45,7 +43,7 @@ namespace AirportLibrary.Flights
 			InitializeAirline(flight);
 			InitializeTerminal(flight);
 			InitializeFlightStatus(flight);
-			InitializePassengers(flight);
+            InitializePassengers(flight);
             InitializeFlightNumber(flight);
             return flight;
         }

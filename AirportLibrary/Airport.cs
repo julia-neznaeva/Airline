@@ -1,4 +1,5 @@
 ﻿using AirportLibrary.Flights;
+using PresenterLevel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,25 +8,29 @@ using System.Threading.Tasks;
 
 namespace AirportLibrary
 {
-    public class Airport
+    public class Airport : IAirport
     {
         List<Flight> _flights = new List<Flight>();
-        private FlightInfoBuilder _flightBuilder;
-        private Random _rand = new Random(Environment.TickCount);
 
-        public List<Flight> FlightsList
+        private FlightInfoBuilder _flightBuilder;
+
+        public static Airport Create()
+        {
+           return new Airport();
+        }
+
+        public List<Flight> Flights
         {
             get { return _flights; }
         }
 
-        public Airport()
+        private Airport()
         {
             _flightBuilder = new RandomFlightInfoBuilder();
             for (int i = 0; i < 20; i++)
             {
                 _flights.Add(_flightBuilder.CreateFlight());
             }
-          
         }
 
         public void DeleteFlight(Flight flight)
@@ -50,6 +55,13 @@ namespace AirportLibrary
                 }
             }
             _flights[index] = flight;
+        }
+
+        public void AddPassenger(string flightNumber, Passenger passender)
+        {
+            Flight flight = _flights.Where(x => x.FlightNumber == flightNumber).FirstOrDefault();
+            flight.AddPassenger(passender);
+
         }
 
         public List<Flight> GetFlightsDirection(Direction direction)
@@ -130,6 +142,7 @@ namespace AirportLibrary
         {
             return FindByNumber(flightNumber).Passengers;
         }
+
      }
 
 }

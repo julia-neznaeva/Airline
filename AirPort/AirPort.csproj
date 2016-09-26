@@ -54,6 +54,14 @@
       <Project>{4344e238-3e59-42ee-a9b3-42e07c9a0130}</Project>
       <Name>AirportLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PresenterLevel\PresenterLevel.csproj">
+      <Project>{96b4afee-215b-45c5-bc9c-b27d4bcb1390}</Project>
+      <Name>PresenterLevel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewLevel\ViewLevel.csproj">
+      <Project>{8beac5c0-40ad-45f6-bd72-1740dbf582a2}</Project>
+      <Name>ViewLevel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

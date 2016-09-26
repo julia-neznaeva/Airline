@@ -88,5 +88,18 @@ namespace AirportLibrary.Flights
 			}
 			return new string(str);
 		}
-	}
+
+        public override Flight CreateFlight()
+        {
+            Flight flight = new Flight();
+            InitializeDirection(flight);
+            InitializeDateTime(flight);
+            InitializeCity(flight);
+            InitializeAirline(flight);
+            InitializeTerminal(flight);
+            InitializeFlightStatus(flight);
+            InitializeFlightNumber(flight);
+            return flight;
+        }
+    }
 }

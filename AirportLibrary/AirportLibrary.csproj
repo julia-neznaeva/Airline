@@ -39,22 +39,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Airpot.cs" />
+    <Compile Include="Airport.cs" />
     <Compile Include="ConsoleHelper.cs" />
     <Compile Include="Flights\ConsoleFlightInfoBuilder.cs" />
     <Compile Include="Flights\Direction.cs" />
     <Compile Include="Flights\Flight.cs" />
+    <Compile Include="Flights\FlightEventArgs.cs" />
+    <Compile Include="Flights\FlightFieldsEventArgs.cs" />
     <Compile Include="Flights\FlightInfoBuilder.cs" />
+    <Compile Include="Flights\PredicateFlightEventArgs.cs" />
     <Compile Include="Flights\RandomFlightInfoBuilder.cs" />
+    <Compile Include="IAirport.cs" />
     <Compile Include="Passengers\ConsolePassengerInfoBuilder.cs" />
     <Compile Include="Passengers\Passenger.cs" />
+    <Compile Include="Passengers\PassengerEventArgs.cs" />
+    <Compile Include="Passengers\PassengerFieldsEventArgs.cs" />
     <Compile Include="Passengers\PassengerInfoBuilder.cs" />
+    <Compile Include="Passengers\PredicatePassengerEventArgs.cs" />
     <Compile Include="Passengers\RandomPassengerInfoBuilder.cs" />
     <Compile Include="Passengers\Sex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tickets\Ticket.cs" />
     <Compile Include="Tickets\TicketClass.cs" />
-    <Compile Include="UserInterFace.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
