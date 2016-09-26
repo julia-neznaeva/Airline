@@ -19,9 +19,15 @@ namespace PresenterLevel
             _view.DisplayFlightEventRaise += OnDisplayFlightEventRaise;
             _view.SearchFlightEventRaise += OnSearchFlightEventRaise;
             _view.DeleteFlightEventRaise += OnDeleteFlightEventRaise;
+            _view.AddFlightEventRaise += OnAddFlightEventRaise;
         }
 
-        private void OnDeleteFlightEventRaise(object sender, FlightNumberEventArgs e)
+        private void OnAddFlightEventRaise(object sender, FlightEventArgs e)
+        {
+            _airport.Add(e.Flight);
+        }
+
+        private void OnDeleteFlightEventRaise(object sender, FlightFieldsEventArgs e)
         {
             _airport.DeleteFlight(_airport.Flights.Where(x => x.FlightNumber == e.FlightNumber).FirstOrDefault());
         }

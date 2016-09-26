@@ -18,7 +18,8 @@ namespace ViewLevel
 
         public event EventHandler<EventArgs> DisplayFlightEventRaise = delegate { };
         public event EventHandler<PredicateFlightEventArgs> SearchFlightEventRaise = delegate { };
-        public event EventHandler<FlightNumberEventArgs> DeleteFlightEventRaise = delegate { };
+        public event EventHandler<FlightFieldsEventArgs> DeleteFlightEventRaise = delegate { };
+        public event EventHandler<FlightEventArgs> AddFlightEventRaise = delegate { };
 
         public void PrintMenu()
         {
@@ -80,17 +81,19 @@ namespace ViewLevel
                         }
                         break;
                     case 3:
-                       // AddNewFlight();
+                        Console.WriteLine("Please fill out the form");
+                        FlightInfoBuilder builder = new ConsoleFlightInfoBuilder(_passengerBuilder);
+                        AddFlightEventRaise(this, new FlightEventArgs(builder.CreateFlight()));
                         Console.WriteLine();
                         break;
                     case 4:
                         Console.Write("Enter flight number to delete: ");
                         string flightNumber = Console.ReadLine();
-                        DeleteFlightEventRaise(this, new FlightNumberEventArgs(flightNumber));
+                        DeleteFlightEventRaise(this, new FlightFieldsEventArgs(flightNumber));
                         Console.WriteLine();
                         break;
                     case 5:
-                     //   Edite();
+                     //Edite();
                         Console.WriteLine();
                         break;
                     case 6:
@@ -106,6 +109,8 @@ namespace ViewLevel
                         Console.WriteLine();
                         break;
                     case 9:
+                        break;
+                    case 10:
                         break;
                     default:
                         Console.WriteLine("Exit");

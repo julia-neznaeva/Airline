@@ -43,7 +43,6 @@ namespace AirportLibrary.Flights
 			InitializeAirline(flight);
 			InitializeTerminal(flight);
 			InitializeFlightStatus(flight);
-			InitializePassengers(flight);
             InitializeFlightNumber(flight);
             return flight;
         }

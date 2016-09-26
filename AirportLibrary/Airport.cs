@@ -12,17 +12,14 @@ namespace AirportLibrary
     {
         List<Flight> _flights = new List<Flight>();
         private FlightInfoBuilder _flightBuilder;
-
         public static Airport Create()
         {
            return new Airport();
         }
-
         public List<Flight> Flights
         {
             get { return _flights; }
         }
-
         private Airport()
         {
             _flightBuilder = new RandomFlightInfoBuilder();
@@ -30,8 +27,8 @@ namespace AirportLibrary
             {
                 _flights.Add(_flightBuilder.CreateFlight());
             }
-          
         }
+
         public void DeleteFlight(Flight flight)
         {
             _flights.Remove(flight);

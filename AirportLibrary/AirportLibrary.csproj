@@ -45,6 +45,7 @@
     <Compile Include="Flights\Direction.cs" />
     <Compile Include="Flights\Flight.cs" />
     <Compile Include="Flights\FlightEventArgs.cs" />
+    <Compile Include="Flights\FlightFieldsEventArgs.cs" />
     <Compile Include="Flights\FlightInfoBuilder.cs" />
     <Compile Include="Flights\PredicateFlightEventArgs.cs" />
     <Compile Include="Flights\RandomFlightInfoBuilder.cs" />

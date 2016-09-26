@@ -13,8 +13,10 @@ namespace PresenterLevel
 
         event EventHandler<PredicateFlightEventArgs> SearchFlightEventRaise;
 
-        event EventHandler<FlightNumberEventArgs> DeleteFlightEventRaise;
+        event EventHandler<FlightFieldsEventArgs> DeleteFlightEventRaise;
 
+        event EventHandler<FlightEventArgs> AddFlightEventRaise;
+         
         void PrintMenu();
 
         void Print(Flight flight);

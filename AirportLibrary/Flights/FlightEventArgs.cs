@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using AirportLibrary;
+using System;
 
-namespace AirportLibrary.Flights
+namespace PresenterLevel
 {
-    public class FlightNumberEventArgs: EventArgs
+    public class FlightEventArgs: EventArgs
     {
-        String _flightsNumber;
-
-        public FlightNumberEventArgs(String flightsNumber)
+        private Flight _flight;
+        public Flight Flight => _flight;
+        public FlightEventArgs(Flight flight)
         {
-            _flightsNumber = flightsNumber;
+            _flight = flight;
         }
-
-        public String FlightNumber=> _flightsNumber;
 
     }
 }

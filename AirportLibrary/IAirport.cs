@@ -8,5 +8,8 @@ namespace PresenterLevel
         List<Flight> Flights { get; }
         Flight FindByNumber(string flightNumber);
         void DeleteFlight(Flight flight);
+        void Add(Flight flight);
+
+
     }
 }
