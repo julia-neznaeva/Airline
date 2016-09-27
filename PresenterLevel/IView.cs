@@ -25,7 +25,11 @@ namespace PresenterLevel
         event EventHandler<FlightFieldsEventArgs> SearchPassengerByFlightEventRaise;
 
         event EventHandler<PassengerFieldsEventArgs> DeletePassengerEventRaise;
-        
+
+        event EventHandler<FlightFieldsEventArgs> EditFlightEventRaise;
+
+        event EventHandler<PassengerFieldsEventArgs> EditePassengerEventRaise;
+
         void PrintMenu();
 
         void Print(Flight flight);
@@ -35,10 +39,6 @@ namespace PresenterLevel
         void Print(Passenger passenger);
 
         void Print(List<Passenger> passengers);
-
-
-
-
         
     }
 }

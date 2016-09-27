@@ -15,13 +15,13 @@ namespace ViewLevel
     {
  
         PassengerInfoBuilder _passengerBuilder = new ConsolePassengerInfoBuilder();
-        
         public event EventHandler<EventArgs> DisplayFlightEventRaise = delegate { };
         public event EventHandler<PredicateFlightEventArgs> SearchFlightEventRaise = delegate { };
         public event EventHandler<FlightFieldsEventArgs> DeleteFlightEventRaise = delegate { };
         public event EventHandler<FlightEventArgs> AddFlightEventRaise = delegate { };
+        public event EventHandler<FlightFieldsEventArgs> EditFlightEventRaise = delegate { };
         public event EventHandler<PassengerEventArgs> AddPassangerEventRaise = delegate { };
-
+        public event EventHandler<PassengerFieldsEventArgs> EditePassengerEventRaise = delegate { };
         public event EventHandler<PassengerFieldsEventArgs> DeletePassengerEventRaise = delegate { };
         public event EventHandler<PredicatePassengerEventArgs> SearchPassengerEventRaise = delegate { };
         public event EventHandler<FlightFieldsEventArgs> SearchPassengerByFlightEventRaise = delegate { };
@@ -172,7 +172,7 @@ namespace ViewLevel
         {
             passengers.ForEach(x=>Print(x));
         }
-
+       
         //     public void AddNewFlight()
         //     {
         //         Console.WriteLine("Please fill out the form");

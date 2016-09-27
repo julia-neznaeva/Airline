@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditHelper.cs" />
+    <Compile Include="FlightEditHelper.cs" />
+    <Compile Include="PassengerEditHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterFace.cs" />
   </ItemGroup>
