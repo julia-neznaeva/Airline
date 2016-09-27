@@ -128,21 +128,21 @@ namespace AirportLibrary
             return passengers;
         }
 
-        public List<Passenger> FindPassengerPassport(string value)
+        public Passenger FindPassengerPassport(string passport)
         {
-            List<Passenger> passengers = new List<Passenger>();
+            Passenger passenger = new Passenger();
             foreach (var flight in _flights)
             {
-                passengers.AddRange(flight.Passengers.Where(x => x.Passport.Contains(value)));
+                passenger =flight.Passengers.Where(x => x.Passport==passport).FirstOrDefault();
+                break;
             }
-            return passengers;
+            return passenger;
         }
-
         public List<Passenger> FindPassengerByFlightNumber(string flightNumber)
         {
             return FindByNumber(flightNumber).Passengers;
         }
-
-     }
+        
+    }
 
 }

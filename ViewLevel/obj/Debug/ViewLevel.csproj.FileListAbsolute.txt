@@ -16,3 +16,12 @@ C:\Users\Juliia\Source\Repos\Airline\ViewLevel\bin\Debug\PresenterLevel.pdb
 C:\Users\Juliia\Source\Repos\Airline\ViewLevel\obj\Debug\ViewLevel.csprojResolveAssemblyReference.cache
 C:\Users\Juliia\Source\Repos\Airline\ViewLevel\obj\Debug\ViewLevel.dll
 C:\Users\Juliia\Source\Repos\Airline\ViewLevel\obj\Debug\ViewLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\ViewLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\ViewLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\PresenterLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\PresenterLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\obj\Debug\ViewLevel.csprojResolveAssemblyReference.cache
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\obj\Debug\ViewLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\obj\Debug\ViewLevel.pdb

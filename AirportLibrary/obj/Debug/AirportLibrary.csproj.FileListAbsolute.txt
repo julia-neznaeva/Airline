@@ -7,3 +7,8 @@ C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\bi
 C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\obj\Debug\AirportLibrary.dll
 C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\obj\Debug\AirportLibrary.pdb
 C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportLibrary\obj\Debug\AirportLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\bin\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\bin\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\obj\Debug\AirportLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\obj\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\obj\Debug\AirportLibrary.pdb

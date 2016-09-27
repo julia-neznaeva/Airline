@@ -9,6 +9,8 @@ namespace PresenterLevel
 
         Flight FindByNumber(string flightNumber);
 
+        Passenger FindPassengerPassport(string passport);
+
         void DeleteFlight(Flight flight);
 
         void Add(Flight flight);

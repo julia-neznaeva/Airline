@@ -10,12 +10,12 @@ namespace ViewLevel
     {
         Passenger _passenger;
 
-        public PassengerEditHelper(Passenger passenger)
+        internal PassengerEditHelper(Passenger passenger)
         {
             _passenger = passenger;
         }
 
-        public  void EditPassenger()
+        public  void Edit()
         {
             Console.WriteLine("Enter new value for fields. If field should not be edited  value press enter");
             _passenger.Firstname = EditFirstName(_passenger.Firstname);

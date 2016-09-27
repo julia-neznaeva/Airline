@@ -13,3 +13,10 @@ C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\AirportLibrary.pdb
 C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\obj\Debug\PresenterLevel.csprojResolveAssemblyReference.cache
 C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\obj\Debug\PresenterLevel.dll
 C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\obj\Debug\PresenterLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\bin\Debug\PresenterLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\bin\Debug\PresenterLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\bin\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\bin\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\obj\Debug\PresenterLevel.csprojResolveAssemblyReference.cache
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\obj\Debug\PresenterLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\PresenterLevel\obj\Debug\PresenterLevel.pdb

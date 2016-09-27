@@ -10,7 +10,7 @@ namespace ViewLevel
     {
         Flight _flight;
 
-        FlightEditHelper(Flight flight)
+       internal FlightEditHelper(Flight flight)
         {
             _flight = flight;
         }
@@ -19,22 +19,12 @@ namespace ViewLevel
         {
             Console.WriteLine("Enter flight number: ");
             Console.WriteLine("Enter new value for fields. If field should not be edited  value press enter");
-            DateTime date = EditDateTime(_flight.DateTime);
-            string city = EditeFlightCity(_flight.City);
-            string airline = EditAirline(_flight.Airline);
-            char terminal = EditeTerminal(_flight.Terminal);
-            Status status = EditeStatus(_flight.FlightStatus);
-            Flight newFlight = new Flight()
-            {
-                Direction = _flight.Direction,
-                FlightNumber = _flight.FlightNumber,
-                DateTime = date,
-                City = city,
-                Airline = airline,
-                Terminal = terminal,
-                FlightStatus = status
-            };
-                  }
+            _flight.DateTime = EditDateTime(_flight.DateTime);
+            _flight.City = EditeFlightCity(_flight.City);
+            _flight.Airline = EditAirline(_flight.Airline);
+            _flight.Terminal = EditeTerminal(_flight.Terminal);
+            _flight.FlightStatus = EditeStatus(_flight.FlightStatus);
+        }
 
         private string EditAirline(string airline)
         {

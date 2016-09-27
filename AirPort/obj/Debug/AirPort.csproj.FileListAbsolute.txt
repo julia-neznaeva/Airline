@@ -34,3 +34,15 @@ C:\Users\Juliia\Source\Repos\Airline\AirPort\bin\Debug\PresenterLevel.dll
 C:\Users\Juliia\Source\Repos\Airline\AirPort\bin\Debug\ViewLevel.dll
 C:\Users\Juliia\Source\Repos\Airline\AirPort\bin\Debug\PresenterLevel.pdb
 C:\Users\Juliia\Source\Repos\Airline\AirPort\bin\Debug\ViewLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\AirPort.exe.config
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\obj\Debug\AirPort.exe
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\obj\Debug\AirPort.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\AirPort.exe
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\AirPort.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\PresenterLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\ViewLevel.dll
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\PresenterLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\ViewLevel.pdb
+C:\Users\Yuliya\Source\Repos\Airline2\AirPort\obj\Debug\AirPort.csprojResolveAssemblyReference.cache
