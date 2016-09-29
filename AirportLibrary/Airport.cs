@@ -62,22 +62,7 @@ namespace AirportLibrary
             Flight flight = _flights.Where(x => x.FlightNumber == flightNumber).FirstOrDefault();
             flight.AddPassenger(passender);
         }
-
-        public void EditePassenger(string flightNumber, Passenger passender)
-        {
-            Flight flight = _flights.Where(x => x.FlightNumber == flightNumber).FirstOrDefault();
-            flight.EditPassanger(passender);
-        }
-
-        public List<Flight> GetFlightsDirection(Direction direction)
-        {
-            List<Flight> result = new List<Flight>();
-
-            result = _flights.FindAll(x => x.Direction == direction);
        
-            return result; 
-        }
-        
         public Flight FindByNumber(string flightNumber)
         {
             Flight result = null;
@@ -92,47 +77,6 @@ namespace AirportLibrary
             return result;
         }
 
-        public List<Flight> FindByCity(string city)
-        {
-            List<Flight> result = new List<Flight>();
-
-            result = _flights.FindAll(x => x.City == city);
-
-            return result;
-        }
-
-        public List<Flight> FindByTime(DateTime dateTime)
-        {
-            List<Flight> result = new List<Flight>();
-
-            result = _flights.FindAll(x => x.DateTime == dateTime);
-
-            return result;
-        }
-
-        public List<Flight> FindByNearestDateTime()
-        {
-            DateTime startDateTime = DateTime.Now;
-            DateTime finishDateTime = startDateTime.AddHours(1);
-
-            List<Flight> result = new List<Flight>();
-
-            result = _flights.FindAll(x => x.DateTime > startDateTime && x.DateTime < finishDateTime);
-
-            return result;
-        }
-
-        public List<Passenger> FindPassengerByName(string value)
-        {
-            List<Passenger> passengers = new List<Passenger>();
-            foreach (var flight in _flights)
-            {
-                passengers.AddRange(flight.Passengers.Where(x => x.Firstname.Contains(value)));
-                passengers.AddRange(flight.Passengers.Where(x => x.Lastname.Contains(value)));
-            }
-            return passengers;
-        }
-
         public Passenger FindPassengerPassport(string passport)
         {
             Passenger passenger = new Passenger();
@@ -141,10 +85,6 @@ namespace AirportLibrary
                 passenger =flight.Passengers.Where(x => x.Passport==passport).FirstOrDefault();
             }
             return passenger;
-        }
-        public List<Passenger> FindPassengerByFlightNumber(string flightNumber)
-        {
-            return FindByNumber(flightNumber).Passengers;
         }
         
     }
