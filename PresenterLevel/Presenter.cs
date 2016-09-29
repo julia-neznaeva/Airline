@@ -75,7 +75,10 @@ namespace PresenterLevel
 
         private void OnDeleteFlightEventRaise(object sender, FlightFieldsEventArgs e)
         {
-            _airport.DeleteFlight(_airport.Flights.Where(x => x.FlightNumber == e.FlightNumber).FirstOrDefault());
+            if (_airport.Flights.Any(x => x.FlightNumber == e.FlightNumber))
+                _airport.DeleteFlight(_airport.Flights.Where(x => x.FlightNumber == e.FlightNumber).FirstOrDefault());
+            else
+                _view.PrintError("The flight is not exsist");
         }
 
         private void OnSearchFlightEventRaise(object sender, PredicateFlightEventArgs e)
@@ -91,7 +94,10 @@ namespace PresenterLevel
 
         private void OnAddPassangerEventRaise(object sender, PassengerEventArgs e)
         {
-           _airport.AddPassenger(e.FlightNumber, e.Passenger);
+            if (_airport.Flights.Any(x => x.FlightNumber == e.FlightNumber))
+                _airport.AddPassenger(e.FlightNumber, e.Passenger);
+            else
+                _view.PrintError("The flight is not exsist");
         }
 
         private void OnSearchPassengerByFlightEventRaise(object sender, FlightFieldsEventArgs e)
@@ -107,6 +113,7 @@ namespace PresenterLevel
                 passengers.AddRange(flight.Passengers.Where(e.Predicate));
             }
            _view.Print(passengers);
+
         }
     }
 }

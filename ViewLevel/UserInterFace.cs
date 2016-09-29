@@ -192,7 +192,7 @@ namespace ViewLevel
         {
             Console.ForegroundColor=ConsoleColor.Red;
             Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }

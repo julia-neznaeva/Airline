@@ -46,3 +46,15 @@ C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\AirportLibrary.pdb
 C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\PresenterLevel.pdb
 C:\Users\Yuliya\Source\Repos\Airline2\AirPort\bin\Debug\ViewLevel.pdb
 C:\Users\Yuliya\Source\Repos\Airline2\AirPort\obj\Debug\AirPort.csprojResolveAssemblyReference.cache
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\AirPort.exe.config
+D:\Neznaeva\Project\Airline2\AirPort\obj\Debug\AirPort.exe
+D:\Neznaeva\Project\Airline2\AirPort\obj\Debug\AirPort.pdb
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\AirPort.exe
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\AirPort.pdb
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\AirportLibrary.dll
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\PresenterLevel.dll
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\ViewLevel.dll
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\AirportLibrary.pdb
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\PresenterLevel.pdb
+D:\Neznaeva\Project\Airline2\AirPort\bin\Debug\ViewLevel.pdb
+D:\Neznaeva\Project\Airline2\AirPort\obj\Debug\AirPort.csprojResolveAssemblyReference.cache

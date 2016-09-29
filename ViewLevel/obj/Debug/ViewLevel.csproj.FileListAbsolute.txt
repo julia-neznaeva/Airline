@@ -25,3 +25,12 @@ C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\bin\Debug\PresenterLevel.pdb
 C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\obj\Debug\ViewLevel.csprojResolveAssemblyReference.cache
 C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\obj\Debug\ViewLevel.dll
 C:\Users\Yuliya\Source\Repos\Airline2\ViewLevel\obj\Debug\ViewLevel.pdb
+D:\Neznaeva\Project\Airline2\ViewLevel\bin\Debug\ViewLevel.dll
+D:\Neznaeva\Project\Airline2\ViewLevel\bin\Debug\ViewLevel.pdb
+D:\Neznaeva\Project\Airline2\ViewLevel\bin\Debug\AirportLibrary.dll
+D:\Neznaeva\Project\Airline2\ViewLevel\bin\Debug\PresenterLevel.dll
+D:\Neznaeva\Project\Airline2\ViewLevel\bin\Debug\AirportLibrary.pdb
+D:\Neznaeva\Project\Airline2\ViewLevel\bin\Debug\PresenterLevel.pdb
+D:\Neznaeva\Project\Airline2\ViewLevel\obj\Debug\ViewLevel.csprojResolveAssemblyReference.cache
+D:\Neznaeva\Project\Airline2\ViewLevel\obj\Debug\ViewLevel.dll
+D:\Neznaeva\Project\Airline2\ViewLevel\obj\Debug\ViewLevel.pdb

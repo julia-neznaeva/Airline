@@ -12,3 +12,8 @@ C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\bin\Debug\AirportLibrary.pd
 C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\obj\Debug\AirportLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\obj\Debug\AirportLibrary.dll
 C:\Users\Yuliya\Source\Repos\Airline2\AirportLibrary\obj\Debug\AirportLibrary.pdb
+D:\Neznaeva\Project\Airline2\AirportLibrary\bin\Debug\AirportLibrary.dll
+D:\Neznaeva\Project\Airline2\AirportLibrary\bin\Debug\AirportLibrary.pdb
+D:\Neznaeva\Project\Airline2\AirportLibrary\obj\Debug\AirportLibrary.csprojResolveAssemblyReference.cache
+D:\Neznaeva\Project\Airline2\AirportLibrary\obj\Debug\AirportLibrary.dll
+D:\Neznaeva\Project\Airline2\AirportLibrary\obj\Debug\AirportLibrary.pdb
