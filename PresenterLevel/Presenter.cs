@@ -12,6 +12,7 @@ namespace PresenterLevel
     {
         IAirport _airport;
         IView _view;
+
         public Presenter(IView view)
         {
             _view = view;
@@ -28,7 +29,6 @@ namespace PresenterLevel
             _view.SearchPassengerEventRaise += OnSearchPassengerEventRaise;
             _view.SearchPassengerByFlightEventRaise += OnSearchPassengerByFlightEventRaise;
             _view.DeletePassengerEventRaise += OnDeletePassengerEventRaise;
-                
         }
 
         private void OnReturnEditedFlightEventRaise(object sender, FlightEventArgs e)
@@ -63,7 +63,14 @@ namespace PresenterLevel
 
         private void OnAddFlightEventRaise(object sender, FlightEventArgs e)
         {
-            _airport.Add(e.Flight);
+            try
+            {
+                _airport.Add(e.Flight);
+            }
+            catch (AddFlightException ex)
+            {
+                _view.PrintError(ex.Message);
+            }
         }
 
         private void OnDeleteFlightEventRaise(object sender, FlightFieldsEventArgs e)
@@ -101,7 +108,5 @@ namespace PresenterLevel
             }
            _view.Print(passengers);
         }
-
-
     }
 }

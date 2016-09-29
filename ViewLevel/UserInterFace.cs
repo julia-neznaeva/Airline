@@ -102,7 +102,6 @@ namespace ViewLevel
                         Console.WriteLine("Enter flight number to edit: ");
                         string flNumber = Console.ReadLine();
                         EditFlightEventRaise(this, new FlightFieldsEventArgs(flNumber));
-
                         Console.WriteLine();
                         break;
                     case 6:
@@ -187,6 +186,13 @@ namespace ViewLevel
         {
             PassengerEditHelper passengerEditHelper = new PassengerEditHelper(passenger);
             passengerEditHelper.Edit();
+        }
+
+        public void PrintError(string message)
+        {
+            Console.ForegroundColor=ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

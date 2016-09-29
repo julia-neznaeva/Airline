@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Airport.cs" />
     <Compile Include="ConsoleHelper.cs" />
+    <Compile Include="Flights\AddFlightException.cs" />
     <Compile Include="Flights\Direction.cs" />
     <Compile Include="Flights\Flight.cs" />
     <Compile Include="Flights\FlightEventArgs.cs" />

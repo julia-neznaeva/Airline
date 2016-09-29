@@ -40,6 +40,10 @@ namespace AirportLibrary
 
         public void Add(Flight flight)
         {
+            if (_flights.Any(x => x.FlightNumber == flight.FlightNumber))
+            {
+                throw new AddFlightException("Flight with that flight number already exsist");
+            }
             _flights.Add(flight);
         } 
 

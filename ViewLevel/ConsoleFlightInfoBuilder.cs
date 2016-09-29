@@ -26,10 +26,9 @@ namespace AirportLibrary.Flights
 
 		protected override void InitializeFlightNumber(Flight flight)
 		{
+            Console.WriteLine("Please enter flight number. Flight number should be 6 symbols");
 			Console.Write("Flight number: ");
-			string number = GetRandomString(6);
-			Console.WriteLine(number);
-			flight.FlightNumber = number;
+            flight.FlightNumber = ConsoleHelper.ReadString(6, Console.ReadLine());
 		}
 
 		protected override void InitializeDateTime(Flight flight)
@@ -78,7 +77,7 @@ namespace AirportLibrary.Flights
 			flight.Passengers.Add(_pbuilder.CreatePassenger());
 		}
 
-		private string GetRandomString(int v)
+        private string GetRandomString(int v)
 		{
 			string _forRandString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 			char[] str = new char[6];

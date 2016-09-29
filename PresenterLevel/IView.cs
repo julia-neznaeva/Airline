@@ -39,6 +39,6 @@ namespace PresenterLevel
         void Print(List<Passenger> passengers);
         void Edite(Flight flight);
         void Edite(Passenger passenger);
-        
+        void PrintError(string message);
     }
 }
