@@ -15,15 +15,19 @@ namespace ViewLevel
             _flight = flight;
         }
 
-        public void Edite()
+        public Flight Edite()
         {
+            Flight flight = new Flight();
             Console.WriteLine("Enter flight number: ");
             Console.WriteLine("Enter new value for fields. If field should not be edited  value press enter");
-            _flight.DateTime = EditDateTime(_flight.DateTime);
-            _flight.City = EditeFlightCity(_flight.City);
-            _flight.Airline = EditAirline(_flight.Airline);
-            _flight.Terminal = EditeTerminal(_flight.Terminal);
-            _flight.FlightStatus = EditeStatus(_flight.FlightStatus);
+            flight.DateTime = EditDateTime(_flight.DateTime);
+            flight.City = EditeFlightCity(_flight.City);
+            flight.Airline = EditAirline(_flight.Airline);
+            flight.Terminal = EditeTerminal(_flight.Terminal);
+            flight.FlightStatus = EditeStatus(_flight.FlightStatus);
+            flight.FlightNumber = _flight.FlightNumber;
+            flight.Passengers = _flight.Passengers;
+            return flight;
         }
 
         private string EditAirline(string airline)

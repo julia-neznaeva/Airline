@@ -17,7 +17,7 @@ namespace PresenterLevel
 
         void AddPassenger(string flightNumber, Passenger passender);
 
-
-
+        void Edite(Flight flight);
+              
     }
 }

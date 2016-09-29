@@ -28,16 +28,14 @@ namespace PresenterLevel
 
         event EventHandler<FlightFieldsEventArgs> EditFlightEventRaise;
 
+        event EventHandler<FlightEventArgs> ReturnEditedFlightEventRaise;
+
         event EventHandler<PassengerFieldsEventArgs> EditePassengerEventRaise;
 
         void PrintMenu();
-
         void Print(Flight flight);
-
         void Print(List<Flight> flights);
-
         void Print(Passenger passenger);
-
         void Print(List<Passenger> passengers);
         void Edite(Flight flight);
         void Edite(Passenger passenger);

@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleFlightInfoBuilder.cs" />
+    <Compile Include="ConsolePassengerInfoBuilder.cs" />
     <Compile Include="EditHelper.cs" />
     <Compile Include="FlightEditHelper.cs" />
     <Compile Include="PassengerEditHelper.cs" />

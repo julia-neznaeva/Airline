@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="Airport.cs" />
     <Compile Include="ConsoleHelper.cs" />
-    <Compile Include="Flights\ConsoleFlightInfoBuilder.cs" />
     <Compile Include="Flights\Direction.cs" />
     <Compile Include="Flights\Flight.cs" />
     <Compile Include="Flights\FlightEventArgs.cs" />
@@ -50,7 +49,6 @@
     <Compile Include="Flights\PredicateFlightEventArgs.cs" />
     <Compile Include="Flights\RandomFlightInfoBuilder.cs" />
     <Compile Include="IAirport.cs" />
-    <Compile Include="Passengers\ConsolePassengerInfoBuilder.cs" />
     <Compile Include="Passengers\Passenger.cs" />
     <Compile Include="Passengers\PassengerEventArgs.cs" />
     <Compile Include="Passengers\PassengerFieldsEventArgs.cs" />

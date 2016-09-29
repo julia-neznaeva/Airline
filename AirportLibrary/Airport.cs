@@ -61,7 +61,12 @@ namespace AirportLibrary
         {
             Flight flight = _flights.Where(x => x.FlightNumber == flightNumber).FirstOrDefault();
             flight.AddPassenger(passender);
+        }
 
+        public void EditePassenger(string flightNumber, Passenger passender)
+        {
+            Flight flight = _flights.Where(x => x.FlightNumber == flightNumber).FirstOrDefault();
+            flight.EditPassanger(passender);
         }
 
         public List<Flight> GetFlightsDirection(Direction direction)
@@ -134,7 +139,6 @@ namespace AirportLibrary
             foreach (var flight in _flights)
             {
                 passenger =flight.Passengers.Where(x => x.Passport==passport).FirstOrDefault();
-                break;
             }
             return passenger;
         }

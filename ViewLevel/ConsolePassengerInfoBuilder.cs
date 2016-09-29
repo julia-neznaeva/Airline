@@ -37,7 +37,7 @@ namespace AirportLibrary
         
         protected override void InitializeTicket(Passenger passenger)
         {
-			Console.Write("Enter Ticket: ");
+		    Console.Write("Enter Ticket: 0 - Bussiness, 1- Economy");
            passenger.Ticket = (TicketType)ConsoleHelper.ReadNumber(Console.ReadLine());
         }
     }

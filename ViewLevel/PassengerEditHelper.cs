@@ -15,7 +15,7 @@ namespace ViewLevel
             _passenger = passenger;
         }
 
-        public  void Edit()
+        public void Edit()
         {
             Console.WriteLine("Enter new value for fields. If field should not be edited  value press enter");
             _passenger.Firstname = EditFirstName(_passenger.Firstname);
@@ -23,18 +23,22 @@ namespace ViewLevel
             _passenger.Sex = EditSex(_passenger.Sex);
             _passenger.Birthday = EditBirthday(_passenger.Birthday);
             _passenger.Ticket = EditeTiket(_passenger.Ticket);
+            _passenger.Passport = _passenger.Passport;
 
         }
 
         private  TicketType EditeTiket(TicketType ticket)
         {
-            Console.WriteLine();
-            return ticket;
+            Console.Write("Enter Ticket: 0 - Bussiness, 1- Economy");
+            OutputOldValue(ticket);
+            return (TicketType)ConsoleHelper.ReadNumber(Console.ReadLine());
+            
         }
 
         private  DateTime EditBirthday(DateTime birthday)
         {
             Console.WriteLine("Enter birthday");
+            OutputOldValue(birthday);
             string date = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(date))
             {

@@ -22,6 +22,7 @@ namespace PresenterLevel
             _view.DeleteFlightEventRaise += OnDeleteFlightEventRaise;
             _view.AddFlightEventRaise += OnAddFlightEventRaise;
             _view.EditFlightEventRaise += OnEditFlightEventRaise;
+            _view.ReturnEditedFlightEventRaise += OnReturnEditedFlightEventRaise;
             _view.EditePassengerEventRaise += OnEditePassengerEventRaise;
             _view.AddPassangerEventRaise += OnAddPassangerEventRaise;
             _view.SearchPassengerEventRaise += OnSearchPassengerEventRaise;
@@ -30,9 +31,16 @@ namespace PresenterLevel
                 
         }
 
+        private void OnReturnEditedFlightEventRaise(object sender, FlightEventArgs e)
+        {
+            _airport.Edite(e.Flight);
+        }
+
         private void OnEditePassengerEventRaise(object sender, PassengerFieldsEventArgs e)
         {
             Passenger passenger = _airport.FindPassengerPassport(e.PassengerInfo);
+            Flight result  = new Flight();
+            
             _view.Edite(passenger);
         }
 
