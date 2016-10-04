@@ -1,4 +1,5 @@
-﻿using AirportLibrary;
+﻿using AirportDb;
+using AirportLibrary;
 using PresenterLevel;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,12 @@ namespace AirportProgram
             Console.WindowWidth = 150;
             Console.Title = "Airport";
 
-            IView _view = new UserInterFace();
-            Presenter presenter = new Presenter(_view);
-            _view.PrintMenu();
+            //IView _view = new UserInterFace();
+            //Presenter presenter = new Presenter(_view);
+            //_view.PrintMenu();
+
+            Class1.DoWork();
+            Console.ReadLine();
 
             
 
