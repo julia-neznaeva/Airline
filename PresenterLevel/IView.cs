@@ -3,8 +3,7 @@ using AirportLibrary.Flights;
 using AirportLibrary.Passengers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace PresenterLevel
 {
@@ -12,7 +11,13 @@ namespace PresenterLevel
     {
         event EventHandler<EventArgs> DisplayFlightEventRaise;
 
-        event EventHandler<PredicateFlightEventArgs> SearchFlightEventRaise;
+        event EventHandler<FindFlightEventArgs> SearchFlightByNumberEventRaise;
+
+        event EventHandler<FindFlightEventArgs> SearchFlightByCityEventRaise;
+
+        event EventHandler<FindFlightEventArgs> SearchFlightByDateTimeEventRaise;
+
+        event EventHandler<FindFlightEventArgs> SearchFlightEventRaise;
 
         event EventHandler<FlightFieldsEventArgs> DeleteFlightEventRaise;
 
@@ -20,9 +25,11 @@ namespace PresenterLevel
 
         event EventHandler<PassengerEventArgs> AddPassangerEventRaise;
 
-        event EventHandler<PredicatePassengerEventArgs> SearchPassengerEventRaise;
+        event EventHandler<FindPassengerEventArgs> SearchPassengerByPassportEventRaise;
 
-        event EventHandler<FlightFieldsEventArgs> SearchPassengerByFlightEventRaise;
+        event EventHandler<FindPassengerEventArgs> SearchPassengerByFlightEventRaise;
+
+        event EventHandler<FindPassengerEventArgs> SearchPassengerByNameEventRaise;
 
         event EventHandler<PassengerFieldsEventArgs> DeletePassengerEventRaise;
 
@@ -34,9 +41,9 @@ namespace PresenterLevel
 
         void PrintMenu();
         void Print(Flight flight);
-        void Print(List<Flight> flights);
+        void Print(IEnumerable<Flight> flights);
         void Print(Passenger passenger);
-        void Print(List<Passenger> passengers);
+        void Print(IEnumerable<Passenger> passengers);
         void Edite(Flight flight);
         void Edite(Passenger passenger);
         void PrintError(string message);

@@ -90,7 +90,55 @@ namespace AirportLibrary
             }
             return passenger;
         }
-        
+
+        public IEnumerable<Flight> FindByCity(string city)
+        {
+            return _flights.Where(x => x.City == city);
+        }
+
+        public IEnumerable<Flight>FindByTime(DateTime dateTime)
+        {
+            return _flights.Where(x => x.DateTime == dateTime);
+        }
+
+        public IEnumerable<Flight> FindNearest()
+        {
+            DateTime startDateTime = DateTime.Now;
+            DateTime finishDateTime = startDateTime.AddHours(1);
+            return _flights.Where(x => x.DateTime > startDateTime && x.DateTime < finishDateTime);
+        }
+
+        public IEnumerable<Passenger> FindPassengerByName(string name)
+        {
+            List<Passenger> result = new List<Passenger>();
+            foreach (var flight in _flights)
+            {
+                result.AddRange(flight.Passengers.Where(x => x.Firstname.Contains(name) | x.Lastname.Contains(name)));
+            }
+            return result; 
+           
+        }
+        public IEnumerable<Passenger> FindPassengerByFlight(string flightNumber)
+        {
+            return FindByNumber(flightNumber).Passengers;
+        }
+
+        public bool  DeletePassender(Passenger passender, string flightNumber)
+        {
+            Flight flight = FindByNumber(flightNumber);
+            if (flight == null)
+                return false;
+            else
+            {
+                flight.DeletePassanger(passender);
+                return true;
+            }
+        }
+
+        public IEnumerable<Flight> GetFlights()
+        {
+            return _flights;
+        }
     }
 
 }

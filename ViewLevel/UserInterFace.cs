@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirportLibrary.Flights;
-
 using PresenterLevel;
 using AirportLibrary;
+
 
 namespace ViewLevel
 {
@@ -15,7 +15,10 @@ namespace ViewLevel
     {
         PassengerInfoBuilder _passengerBuilder = new ConsolePassengerInfoBuilder();
         public event EventHandler<EventArgs> DisplayFlightEventRaise = delegate { };
-        public event EventHandler<PredicateFlightEventArgs> SearchFlightEventRaise = delegate { };
+        public event EventHandler<FindFlightEventArgs> SearchFlightByNumberEventRaise = delegate { };
+        public event EventHandler<FindFlightEventArgs> SearchFlightByCityEventRaise = delegate { };
+        public event EventHandler<FindFlightEventArgs> SearchFlightByDateTimeEventRaise = delegate { };
+        public event EventHandler<FindFlightEventArgs> SearchFlightEventRaise = delegate { };
         public event EventHandler<FlightFieldsEventArgs> DeleteFlightEventRaise = delegate { };
         public event EventHandler<FlightEventArgs> AddFlightEventRaise = delegate { };
         public event EventHandler<FlightFieldsEventArgs> EditFlightEventRaise = delegate { };
@@ -24,8 +27,11 @@ namespace ViewLevel
         public event EventHandler<PassengerFieldsEventArgs> EditePassengerEventRaise = delegate { };
         public event EventHandler<PassengerEventArgs> ReturnEditedPassengerEventRaise = delegate { };
         public event EventHandler<PassengerFieldsEventArgs> DeletePassengerEventRaise = delegate { };
-        public event EventHandler<PredicatePassengerEventArgs> SearchPassengerEventRaise = delegate { };
-        public event EventHandler<FlightFieldsEventArgs> SearchPassengerByFlightEventRaise = delegate { };
+        public event EventHandler<FindPassengerEventArgs> SearchPassengerByPassportEventRaise = delegate { };
+        public event EventHandler<FindPassengerEventArgs> SearchPassengerByFlightEventRaise = delegate { };
+        public event EventHandler<FindPassengerEventArgs> SearchPassengerByNameEventRaise = delegate { };
+
+
 
         public void PrintMenu()
         {
@@ -66,23 +72,28 @@ namespace ViewLevel
                             case 1:
                                 Console.Write("Enter number flight: ");
                                 string number = Console.ReadLine().ToUpper();
-                                SearchFlightEventRaise(this,  new PredicateFlightEventArgs(x=>x.FlightNumber == number));
+                                var findFlightEventArgs = new FindFlightEventArgs();
+                                findFlightEventArgs.FlightNumber = number;
+                                SearchFlightByNumberEventRaise(this, findFlightEventArgs);
                                 break;
                             case 2:
                                 Console.Write("Enter city: ");
                                 string city = Console.ReadLine();
-                                SearchFlightEventRaise(this, new PredicateFlightEventArgs(x => x.City == city));
+                                var findFlightEventArgs2 = new FindFlightEventArgs();
+                                findFlightEventArgs2.City = city;
+                                SearchFlightByCityEventRaise(this, findFlightEventArgs2);
                                 break;
                             case 3:
                                 Console.Write("Enter date and time: ");
                                 DateTime dateTime = ConsoleHelper.ReadDate(Console.ReadLine());
-                                SearchFlightEventRaise(this, new PredicateFlightEventArgs(x => x.DateTime.Equals(dateTime)));
+                                var findFlightEventArgs3 = new FindFlightEventArgs();
+                                findFlightEventArgs3.DateTime = dateTime;
+                                SearchFlightByDateTimeEventRaise(this, findFlightEventArgs3);
                                 break;
                             default:
                                 Console.Write("Flight on nearest time: ");
-                                DateTime startDateTime = DateTime.Now;
-                                DateTime finishDateTime = startDateTime.AddHours(1);
-                                SearchFlightEventRaise(this, new PredicateFlightEventArgs(x => x.DateTime > startDateTime && x.DateTime < finishDateTime));
+                                var findFlightEventArgs4 = new FindFlightEventArgs();
+                                SearchFlightEventRaise(this, findFlightEventArgs4);
                                 break;
                         }
                         break;
@@ -107,20 +118,23 @@ namespace ViewLevel
                     case 6:
                         Console.WriteLine("Please enter Number of flight to add new passenger: ");
                         string flightNumb = Console.ReadLine();
-                        AddPassangerEventRaise(this, new PassengerEventArgs(flightNumb, _passengerBuilder.CreatePassenger()));
+                        AddPassangerEventRaise(this, new PassengerEventArgs(_passengerBuilder.CreatePassenger(), flightNumb));
                         Console.WriteLine();
                         break;
                     case 7:
                         Console.Write("Please enter passenger passport");
-                        string pasengerPassport = Console.ReadLine();
-                        EditePassengerEventRaise(this, new PassengerFieldsEventArgs(pasengerPassport));
+                        string passengerPassport = Console.ReadLine();
+                         Console.WriteLine("Please enter fligtNumber: ");
+                        EditePassengerEventRaise(this, new PassengerFieldsEventArgs(passengerPassport, null));
                         Console.WriteLine();
                         break;
                     case 8:
                         
                         Console.WriteLine("Please enter passenger passport: ");
                         string info = Console.ReadLine();
-                        DeletePassengerEventRaise(this, new PassengerFieldsEventArgs(info));
+                        Console.WriteLine("Please enter fligtNumber: ");
+                        DeletePassengerEventRaise(this, new PassengerFieldsEventArgs(info,  Console.ReadLine()));
+
                         break;
                     case 9:
                         Console.WriteLine(@"Select search:
@@ -134,17 +148,23 @@ namespace ViewLevel
                             case 1:
                                 Console.Write("Enter name or lastname: ");
                                 string name = Console.ReadLine();
-                                SearchPassengerEventRaise(this, new PredicatePassengerEventArgs( x => x.Firstname.Contains(name)| x.Lastname.Contains(name)));
+                                var findPassengerEventArgs = new FindPassengerEventArgs();
+                                findPassengerEventArgs.Name = name;
+                                SearchPassengerByNameEventRaise(this, findPassengerEventArgs);
                                 break;
                             case 2:
                                 Console.Write("Enter flight number: ");
                                 string number = Console.ReadLine();
-                                SearchPassengerByFlightEventRaise(this, new FlightFieldsEventArgs(number));
+                                var findPassengerEventArgs1 = new FindPassengerEventArgs();
+                                findPassengerEventArgs1.FlightNumber = number;
+                                SearchPassengerByFlightEventRaise(this, findPassengerEventArgs1);
                                 break;
                             default:
                                 Console.Write("Enter passport: ");
                                 string passport = Console.ReadLine();
-                                SearchPassengerEventRaise(this, new PredicatePassengerEventArgs(x => x.Passport.Contains(passport)));
+                                var findPassengerEventArgs2 = new FindPassengerEventArgs();
+                                findPassengerEventArgs2.FlightNumber = passport;
+                                SearchPassengerByFlightEventRaise(this, findPassengerEventArgs2);
                                 break;
                                }
                         break;
@@ -161,18 +181,18 @@ namespace ViewLevel
             Console.WriteLine(flight);
         }
 
-        public void Print(List<Flight> flights)
+        public void Print(IEnumerable<Flight> flights)
         {
-            flights.ForEach(x => Print(x));
+            flights.ToList().ForEach(x => Print(x));
         }
 
         public void Print(Passenger passenger)
         {
             Console.WriteLine(passenger); 
         }
-         public void Print(List<Passenger> passengers)
+         public void Print(IEnumerable<Passenger> passengers)
         {
-            passengers.ForEach(x=>Print(x));
+            passengers.ToList().ForEach(x=>Print(x));
         }
 
         public void Edite(Flight flight)

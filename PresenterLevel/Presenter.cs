@@ -5,6 +5,7 @@ using System.Text;
 using AirportLibrary;
 using AirportLibrary.Flights;
 using AirportLibrary.Passengers;
+using AirportDbLevel;
 
 namespace PresenterLevel
 {
@@ -16,9 +17,12 @@ namespace PresenterLevel
         public Presenter(IView view)
         {
             _view = view;
-            _airport = Airport.Create();
+            _airport = AirportDB.Create();
 
             _view.DisplayFlightEventRaise += OnDisplayFlightEventRaise;
+            _view.SearchFlightByNumberEventRaise += OnSearchFlightByNumberEventRaise;
+            _view.SearchFlightByDateTimeEventRaise += OnSearchFlightByDateTimeEventRaise;
+            _view.SearchFlightByCityEventRaise += OnSearchFlightByCityEventRaise;
             _view.SearchFlightEventRaise += OnSearchFlightEventRaise;
             _view.DeleteFlightEventRaise += OnDeleteFlightEventRaise;
             _view.AddFlightEventRaise += OnAddFlightEventRaise;
@@ -26,9 +30,40 @@ namespace PresenterLevel
             _view.ReturnEditedFlightEventRaise += OnReturnEditedFlightEventRaise;
             _view.EditePassengerEventRaise += OnEditePassengerEventRaise;
             _view.AddPassangerEventRaise += OnAddPassangerEventRaise;
-            _view.SearchPassengerEventRaise += OnSearchPassengerEventRaise;
-            _view.SearchPassengerByFlightEventRaise += OnSearchPassengerByFlightEventRaise;
+            _view.SearchPassengerByFlightEventRaise += OnSearchPassengerEventRaise;
+            _view.SearchPassengerByNameEventRaise += OnSearchPassengerByNameEventRaise;
+            _view.SearchPassengerByPassportEventRaise += OnSearchPassengerByPassportEventRaise;
             _view.DeletePassengerEventRaise += OnDeletePassengerEventRaise;
+        }
+
+        private void OnSearchPassengerByPassportEventRaise(object sender, FindPassengerEventArgs e)
+        {
+            _view.Print(_airport.FindPassengerPassport(e.Passport));
+        }
+
+        private void OnSearchPassengerByNameEventRaise(object sender, FindPassengerEventArgs e)
+        {
+            _view.Print(_airport.FindPassengerByName(e.Name));
+        }
+
+        private void OnSearchFlightByCityEventRaise(object sender, FindFlightEventArgs e)
+        {
+            _view.Print(_airport.FindByCity(e.City));
+        }
+
+        private void OnSearchFlightByDateTimeEventRaise(object sender, FindFlightEventArgs e)
+        {
+            _view.Print(_airport.FindByTime(e.DateTime));
+        }
+
+        private void OnSearchFlightByNumberEventRaise(object sender, FindFlightEventArgs e)
+        {
+            _view.Print(_airport.FindByNumber(e.FlightNumber));
+        }
+
+        private void OnSearchFlightEventRaise(object sender, FindFlightEventArgs e)
+        {
+            _view.Print(_airport.FindNearest());
         }
 
         private void OnReturnEditedFlightEventRaise(object sender, FlightEventArgs e)
@@ -38,7 +73,7 @@ namespace PresenterLevel
 
         private void OnEditePassengerEventRaise(object sender, PassengerFieldsEventArgs e)
         {
-            Passenger passenger = _airport.FindPassengerPassport(e.PassengerInfo);
+            Passenger passenger = _airport.FindPassengerPassport(e.Passport);
             Flight result  = new Flight();
             
             _view.Edite(passenger);
@@ -52,13 +87,7 @@ namespace PresenterLevel
 
         private void OnDeletePassengerEventRaise(object sender, PassengerFieldsEventArgs e)
         {
-            Passenger passender = new Passenger();
-            foreach (Flight flight in _airport.Flights)
-            {
-                passender = flight.Passengers.Where(x => x.Passport == e.PassengerInfo).FirstOrDefault();
-                flight.DeletePassanger(passender);
-                break;
-            }
+             _airport.DeletePassender(_airport.FindPassengerPassport(e.Passport), e.FlightNumber);
         }
 
         private void OnAddFlightEventRaise(object sender, FlightEventArgs e)
@@ -75,44 +104,34 @@ namespace PresenterLevel
 
         private void OnDeleteFlightEventRaise(object sender, FlightFieldsEventArgs e)
         {
-            if (_airport.Flights.Any(x => x.FlightNumber == e.FlightNumber))
-                _airport.DeleteFlight(_airport.Flights.Where(x => x.FlightNumber == e.FlightNumber).FirstOrDefault());
+            Flight flight = _airport.FindByNumber(e.FlightNumber);
+            if (flight != null)
+                _airport.DeleteFlight(flight);
             else
                 _view.PrintError("The flight is not exsist");
         }
 
-        private void OnSearchFlightEventRaise(object sender, PredicateFlightEventArgs e)
-        {
-            List<Flight> flights = _airport.Flights.Where(e.Predicate).ToList();
-           _view.Print(flights);
-        }
-
         private void OnDisplayFlightEventRaise(object sender, EventArgs e)
         {
-            _view.Print(_airport.Flights);
+            _view.Print(_airport.GetFlights());
         }
 
         private void OnAddPassangerEventRaise(object sender, PassengerEventArgs e)
         {
-            if (_airport.Flights.Any(x => x.FlightNumber == e.FlightNumber))
+            if (_airport.FindByNumber(e.FlightNumber)!=null)
                 _airport.AddPassenger(e.FlightNumber, e.Passenger);
             else
                 _view.PrintError("The flight is not exsist");
         }
 
-        private void OnSearchPassengerByFlightEventRaise(object sender, FlightFieldsEventArgs e)
+        private void OnSearchPassengerByFlightEventRaise(object sender, FindPassengerEventArgs e)
         {
-            _view.Print(_airport.Flights.Where(x=>x.FlightNumber == e.FlightNumber).FirstOrDefault().Passengers);
+            _view.Print(_airport.FindPassengerByFlight(e.FlightNumber));
         }
 
-        private void OnSearchPassengerEventRaise(object sender, PredicatePassengerEventArgs e)
+        private void OnSearchPassengerEventRaise(object sender, FindPassengerEventArgs e)
         {
-            List<Passenger> passengers = new List<Passenger>();
-            foreach (Flight flight in _airport.Flights)
-            {
-                passengers.AddRange(flight.Passengers.Where(e.Predicate));
-            }
-           _view.Print(passengers);
+           _view.Print(_airport.FindPassengerByFlight(e.FlightNumber));
 
         }
     }

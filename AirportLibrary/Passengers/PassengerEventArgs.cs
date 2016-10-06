@@ -13,7 +13,7 @@ namespace AirportLibrary.Passengers
         public Passenger Passenger => _passenger;
         public String FlightNumber => _flightNumber;
 
-        public PassengerEventArgs(string flightNumber, Passenger passenger)
+        public PassengerEventArgs(Passenger passenger, string flightNumber= null)
         {
             _flightNumber = flightNumber;
             _passenger = passenger;

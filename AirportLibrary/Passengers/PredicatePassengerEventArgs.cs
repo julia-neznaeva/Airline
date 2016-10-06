@@ -5,15 +5,13 @@ using System.Text;
 
 namespace AirportLibrary.Passengers
 {
-    public class PredicatePassengerEventArgs: EventArgs
+    public class FindPassengerEventArgs: EventArgs
     {
-        private Func<Passenger, bool> _predicate;
-        public Func<Passenger, bool> Predicate => _predicate;
+        public string Name { get; set; }
 
-        public PredicatePassengerEventArgs(Func<Passenger, bool> predicate)
-        {
-            _predicate = predicate;
-        }
+        public string Passport { get; set; }
+
+        public string FlightNumber { get; set; } 
 
 
     }
