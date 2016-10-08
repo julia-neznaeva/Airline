@@ -10,7 +10,7 @@ namespace AirportLibrary
         public DateTime  DateTime { get; set; }
         public string City { get; set; }
         public string Airline { get; set; }
-        public char Terminal { get; set; }
+        public string Terminal { get; set; }
         public Status FlightStatus { get; set; }
         public List<Passenger> Passengers { get; set; }
 

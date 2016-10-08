@@ -60,7 +60,7 @@ namespace ViewLevel
 
         }
 
-        private char EditeTerminal(char terminal)
+        private string EditeTerminal(string terminal)
         {
             Console.WriteLine();
             Console.WriteLine("Enter Terminal. Terminal name should be 1 symbols");
@@ -70,7 +70,7 @@ namespace ViewLevel
             {
                 return terminal;
             }
-            else return ConsoleHelper.ReadString(1, str).ToCharArray().First(); ;
+            else return ConsoleHelper.ReadString(1, str) ;
         }
 
         private string EditeFlightCity(string city)

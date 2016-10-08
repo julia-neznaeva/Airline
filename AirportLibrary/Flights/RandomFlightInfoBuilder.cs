@@ -66,7 +66,7 @@ namespace AirportLibrary.Flights
 
         protected override void InitializeTerminal(Flight flight)
         {
-            flight.Terminal = _forRandString[_rand.Next(0, _forRandString.Length - 9)];
+            flight.Terminal = _forRandString[_rand.Next(0, _forRandString.Length - 9)].ToString();
             
         }
     }

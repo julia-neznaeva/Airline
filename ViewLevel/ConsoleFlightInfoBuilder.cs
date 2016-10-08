@@ -59,7 +59,7 @@ namespace AirportLibrary.Flights
 		{
 			Console.WriteLine("Enter Terminal. Terminal name should be 1 symbols");
 			Console.Write("Terminal: ");
-			char terminal = ConsoleHelper.ReadString(1, Console.ReadLine()).ToCharArray().First();
+			string terminal = ConsoleHelper.ReadString(1, Console.ReadLine());
 			flight.Terminal = terminal;
 		}
 

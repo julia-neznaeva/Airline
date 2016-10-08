@@ -36,7 +36,7 @@ namespace PresenterLevel
             _view.DeletePassengerEventRaise += OnDeletePassengerEventRaise;
         }
 
-        private void OnSearchPassengerByPassportEventRaise(object sender, FindPassengerEventArgs e)
+        private void OnSearchPassengerByPassportEventRaise(object sender, FindPassengerEventArgs  e)
         {
             _view.Print(_airport.FindPassengerPassport(e.Passport));
         }

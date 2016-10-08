@@ -30,7 +30,7 @@ namespace AirportLibrary
 
         public override string ToString()
         {
-           return string.Format("{0, 15}|{1, 25}{2, 8}|{3, 10}|{4,15}|{5,10}", Firstname, Lastname, Sex, Passport, Birthday.ToShortDateString(), Ticket );
+           return string.Format("{0, 15}|{1, 25}|{2, 8}|{3, 10}|{4,15}|{5,10}", Firstname, Lastname, Sex, Passport, Birthday.ToShortDateString(), Ticket );
         }
     }
 }

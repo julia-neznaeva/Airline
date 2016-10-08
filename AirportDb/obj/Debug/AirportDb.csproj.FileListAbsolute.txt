@@ -5,3 +5,10 @@ C:\Users\Juliia\Source\Repos\Airline\AirportDb\obj\Debug\AirportDb.pdb
 C:\Users\Juliia\Source\Repos\Airline\AirportDb\obj\Debug\AirportDb.csprojResolveAssemblyReference.cache
 C:\Users\Juliia\Source\Repos\Airline\AirportDb\bin\Debug\AirportLibrary.dll
 C:\Users\Juliia\Source\Repos\Airline\AirportDb\bin\Debug\AirportLibrary.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\obj\Debug\AirportDb.csprojResolveAssemblyReference.cache
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\obj\Debug\AirportDb.dll
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\obj\Debug\AirportDb.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\bin\Debug\AirportDb.dll
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\bin\Debug\AirportDb.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\bin\Debug\AirportLibrary.dll
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\AirportDb\bin\Debug\AirportLibrary.pdb

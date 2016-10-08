@@ -163,8 +163,8 @@ namespace ViewLevel
                                 Console.Write("Enter passport: ");
                                 string passport = Console.ReadLine();
                                 var findPassengerEventArgs2 = new FindPassengerEventArgs();
-                                findPassengerEventArgs2.FlightNumber = passport;
-                                SearchPassengerByFlightEventRaise(this, findPassengerEventArgs2);
+                                findPassengerEventArgs2.Passport = passport;
+                                SearchPassengerByPassportEventRaise(this, findPassengerEventArgs2);
                                 break;
                                }
                         break;

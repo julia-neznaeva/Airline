@@ -29,3 +29,5 @@ D:\Neznaeva\Project\Airline2\PresenterLevel\obj\Debug\PresenterLevel.dll
 D:\Neznaeva\Project\Airline2\PresenterLevel\obj\Debug\PresenterLevel.pdb
 C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\AirportDb.dll
 C:\Users\Juliia\Source\Repos\Airline\PresenterLevel\bin\Debug\AirportDb.pdb
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\PresenterLevel\bin\Debug\AirportDb.dll
+C:\Users\Yuliya\Documents\Visual Studio 2015\Projects\Airlines\PresenterLevel\bin\Debug\AirportDb.pdb
